@@ -1,0 +1,3359 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name LotrModels
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import CoreLocation
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+open class AckMessage : Swift.Codable {
+  public var messageId: Swift.String?
+  public var receiveTime: Swift.Int64?
+  public init(messageId: Swift.String?, receiveTime: Swift.Int64?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AckMessagesBulk : Swift.Codable {
+  public var messages: [LotrModels.AckMessage]?
+  public var receiveTime: Swift.Int64?
+  public init(messages: [LotrModels.AckMessage]?, receiveTime: Swift.Int64?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ActiveApkVersionForClientResponse : Swift.Codable {
+  public var versionCode: Swift.Int?
+  public var url: Swift.String?
+  public var activatedOn: Foundation.Date?
+  public init(versionCode: Swift.Int?, url: Swift.String?, activatedOn: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ActiveApkVersionsResponse : Swift.Codable {
+  public var clientApks: [Swift.String : LotrModels.ApkVersion]?
+  public init(clientApks: [Swift.String : LotrModels.ApkVersion]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct ActiveWorkingSessionResponse : Swift.Codable {
+  public let activeWorkingSession: LotrModels.WorkingSession?
+  public let userStatus: LotrModels.UserStatus?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class Actor : Swift.Codable {
+  public var id: Swift.String?
+  public init(id: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct AddressLatLng : Swift.Codable {
+  public let latLng: LotrModels.LatLng?
+  public let address: Swift.String?
+  public let isLocationVerified: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AdhocBreakDefinition : Swift.Codable {
+  public let breakType: Swift.String?
+  public let displayName: Swift.String?
+  public let breakRules: [LotrModels.AdhocBreakRule]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AdhocBreakRule : Swift.Codable {
+  public let ruleType: LotrModels.RuleTypeEnum?
+  public let values: [Swift.Int]?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+open class Amount : Swift.Codable {
+  public var amount: Swift.Double?
+  public var currency: Swift.String?
+  public var symbol: Swift.String?
+  public init(amount: Swift.Double?, currency: Swift.String?, symbol: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum AmountRecomputeStatusEnum : Swift.String, Swift.Codable {
+  case pending
+  case success
+  case failed
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class AmountTransaction : Swift.Codable {
+  public enum ExchangeType : Swift.String, Swift.Codable {
+    case collect
+    case give
+    case _none
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var amount: LotrModels.Amount?
+  public var exchangeType: LotrModels.AmountTransaction.ExchangeType?
+  public var refId: Swift.String?
+  public init(amount: LotrModels.Amount?, exchangeType: LotrModels.AmountTransaction.ExchangeType?, refId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ApkVersion : Swift.Codable {
+  public var versionCode: Swift.Int?
+  public var isRollback: Swift.Bool?
+  public var url: Swift.String?
+  public init(versionCode: Swift.Int?, isRollback: Swift.Bool?, url: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AppConfigUpdateEvent : Swift.Codable {
+  public var config: LotrModels.ClientAppConfig?
+  public init(config: LotrModels.ClientAppConfig?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AppFieldItem : Swift.Codable {
+  public enum Format : Swift.String, Swift.Codable {
+    case url
+    case text
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var item: Swift.String?
+  public var format: LotrModels.AppFieldItem.Format?
+  public var additionalValues: [Swift.String : Swift.String]?
+  public init(item: Swift.String?, format: LotrModels.AppFieldItem.Format?, additionalValues: [Swift.String : Swift.String]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AppFields : Swift.Codable {
+  public var items: [LotrModels.AppFieldItem]?
+  public init(items: [LotrModels.AppFieldItem]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct AppFieldsUrlConfig : Swift.Codable {
+  public let urlPattern: Swift.String
+  public let queryParamsConfigs: [LotrModels.QueryParamsConfig]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class AppInitRequest : Swift.Codable {
+  public var deviceInfo: LotrModels.DeviceInfo?
+  public var shiftDate: Swift.String?
+  public var dryRun: Swift.Bool?
+  public init(deviceInfo: LotrModels.DeviceInfo?, shiftDate: Swift.String?, dryRun: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AppInitializationResponse : Swift.Codable {
+  public var config: LotrModels.ClientAppConfig?
+  public var user: LotrModels.User?
+  public var userToursResponse: LotrModels.UserToursResponse?
+  public var client: LotrModels.Client?
+  public var workingSessionDetails: LotrModels.ExtendedActiveWorkingSessionResponse?
+  public init(config: LotrModels.ClientAppConfig?, user: LotrModels.User?, userToursResponse: LotrModels.UserToursResponse?, client: LotrModels.Client?, workingSessionDetails: LotrModels.ExtendedActiveWorkingSessionResponse?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct AppLineItems : Swift.Codable {
+  public let lineItems: [LotrModels.LineItem]
+  public let orderChecklistItems: [LotrModels.ChecklistItem]
+  public let cratingInfo: LotrModels.CratingInfo?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.AppLineItems {
+  public static func from(task: LotrModels.Task, visit: LotrModels.Visit) -> LotrModels.AppLineItems
+}
+open class AppPermissionsConfig : Swift.Codable {
+  public var shouldDrawOverApps: Swift.Bool?
+  public init(shouldDrawOverApps: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AppSettingsLogRequest : Swift.Codable {
+  public var createdOn: Foundation.Date?
+  public var appVersion: Swift.Int?
+  public var locationMode: Swift.String?
+  public var mobileData: Swift.Bool?
+  public var unsentCount: Swift.Int?
+  public var settings: Swift.String?
+  public var locationLastCapturedOn: Foundation.Date?
+  public init(createdOn: Foundation.Date?, appVersion: Swift.Int?, locationMode: Swift.String?, mobileData: Swift.Bool?, unsentCount: Swift.Int?, settings: Swift.String?, locationLastCapturedOn: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct AppTaskStatus : Swift.Codable {
+  public let statusEnum: LotrModels.TaskStatus.Status
+  public let triggerTime: Foundation.Date
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.AppTaskStatus {
+  public static func from(taskStatus: LotrModels.TaskStatus?) -> LotrModels.AppTaskStatus
+  public static func with(statusEnum: LotrModels.TaskStatus.Status, triggerTime: Foundation.Date) -> LotrModels.AppTaskStatus
+  public static func correspondingTo(visitStatus: LotrModels.AppVisitStatus) -> LotrModels.AppTaskStatus
+}
+public struct AppTourStatus : Swift.Codable {
+  public let statusEnum: LotrModels.TourStatus
+  public let triggerTime: Foundation.Date
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.AppTourStatus {
+  public static func from(tourStatus: LotrModels.DetailedTourStatus) -> LotrModels.AppTourStatus
+}
+public struct AppTourVisit : Swift.Codable {
+  public let visitSource: LotrModels.TourVisit.VisitSource
+  public let sourceId: Swift.String
+  public let id: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.AppTourVisit {
+  public static func from(tourVisit: LotrModels.TourVisit) -> LotrModels.AppTourVisit
+}
+open class AppUpdateEvent : Swift.Codable {
+  public var unused: Swift.String?
+  public init(unused: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct AppVisitLocation : Swift.Codable {
+  public let id: Swift.String
+  public let latitude: Swift.Double?
+  public let longitude: Swift.Double?
+  public let accuracy: Swift.Int?
+  public let slotStart: Foundation.Date?
+  public let slotEnd: Foundation.Date?
+  public let addressId: Swift.String?
+  public let placeName: Swift.String?
+  public let localityName: Swift.String?
+  public let formattedAddress: Swift.String?
+  public let pincode: Swift.String?
+  public let city: Swift.String?
+  public let state: Swift.String?
+  public let countryCode: Swift.String?
+  public let contactName: Swift.String?
+  public let contactNumber: Swift.String?
+  public let contactEmail: Swift.String?
+  public let alternateContactNumber: Swift.String?
+  public let canTransactAfterSlot: Swift.Bool?
+  public let transactionDuration: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.AppVisitLocation {
+  public static func from(visitLocation: LotrModels.VisitLocation?) -> LotrModels.AppVisitLocation
+  public func distanceFrom(other location: LotrModels.AppVisitLocation) -> Swift.Double?
+  public var displayedAddress: Swift.String? {
+    get
+  }
+  public static func getDisplayedAddress(formattedAddress: Swift.String?, localityName: Swift.String?, city: Swift.String?, pincode: Swift.String?) -> Swift.String?
+}
+public struct AppVisitStatus : Swift.Codable {
+  public let statusEnum: LotrModels.VisitStatus.Status
+  public let triggerTime: Foundation.Date
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.AppVisitStatus {
+  public static func from(visitStatus: LotrModels.VisitStatus?) -> LotrModels.AppVisitStatus
+  public static func with(statusEnum: LotrModels.VisitStatus.Status, triggerTime: Foundation.Date) -> LotrModels.AppVisitStatus
+}
+open class AssignedUser : Swift.Codable {
+  public var carrierClientId: Swift.String?
+  public var userId: Swift.String?
+  public init(carrierClientId: Swift.String?, userId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AsyncCommunicationSetting : Swift.Codable {
+  public var batchMinCount: Swift.Int?
+  public var batchUpdatesTimeout: Swift.Int?
+  public init(batchMinCount: Swift.Int?, batchUpdatesTimeout: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class AvailableApkVersionsResponse : Swift.Codable {
+  public var apks: [LotrModels.ApkVersion]?
+  public init(apks: [LotrModels.ApkVersion]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct BaseLineItem : Swift.Codable {
+  public let id: Swift.String?
+  public let quantity: Swift.Int?
+  public init(id: Swift.String?, quantity: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class BatteryStatus : Swift.Codable {
+  public enum ChargingStatus : Swift.String, Swift.Codable {
+    case pluggedUsb
+    case pluggedAc
+    case charging
+    case _none
+    case unavailable
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var charge: Swift.Int?
+  public var expectedLife: Swift.Int?
+  public var chargingStatus: LotrModels.BatteryStatus.ChargingStatus?
+  public var timestamp: Swift.Int64?
+  public init(charge: Swift.Int?, expectedLife: Swift.Int?, chargingStatus: LotrModels.BatteryStatus.ChargingStatus?, timestamp: Swift.Int64?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum BreakType : Swift.String, Swift.Codable {
+  case lunch
+  case refuel
+  case night
+  case other
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class BulkGetRequest : Swift.Codable {
+  public var filters: [LotrModels.Filter]?
+  public var complexFilters: [LotrModels.ComplexFilter]?
+  public var sortingInfo: [LotrModels.SortingInfo]?
+  public var page: Swift.Int?
+  public var size: Swift.Int?
+  public var fetchMinimal: Swift.Bool?
+  public var selectedIds: [Swift.String]?
+  public var selectedVersionedIds: [LotrModels.VersionedEntityId]?
+  public var skipPaginationInfo: Swift.Bool?
+  public init(filters: [LotrModels.Filter]?, complexFilters: [LotrModels.ComplexFilter]?, sortingInfo: [LotrModels.SortingInfo]?, page: Swift.Int?, size: Swift.Int?, fetchMinimal: Swift.Bool?, selectedIds: [Swift.String]?, selectedVersionedIds: [LotrModels.VersionedEntityId]?, skipPaginationInfo: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class BulkUpdate : Swift.Codable {
+  public var updateType: LotrModels.BulkUpdateType?
+  public var url: Swift.String?
+  public var payload: Swift.String?
+  public var messageId: Swift.String?
+  public var id: Swift.String?
+  public init(updateType: LotrModels.BulkUpdateType?, url: Swift.String?, payload: Swift.String?, messageId: Swift.String?, id: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum BulkUpdateType : Swift.String, Swift.Codable {
+  case location
+  case taskStatus
+  case visitStatus
+  case lineItemTransaction
+  case appSettingsLog
+  case userVisitStatus
+  case tourVisitStatus
+  case transactionEnd
+  case checkListUpdate
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class BulkUpdates : Swift.Codable {
+  public var updates: [LotrModels.BulkUpdate]?
+  public init(updates: [LotrModels.BulkUpdate]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class CardConfig : Swift.Codable {
+  public var placeholder1: LotrModels.CardPlaceholder?
+  public var placeholder2: LotrModels.CardPlaceholder?
+  public init(placeholder1: LotrModels.CardPlaceholder?, placeholder2: LotrModels.CardPlaceholder?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum CardPlaceholder : Swift.String, Swift.Codable {
+  case eta
+  case slot
+  case amount
+  case skuCount
+  case navigate
+  case call
+  case tat
+  case loadingSlot
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class ChatSettings : Swift.Codable {
+  public var enableRiderPersonnelChat: Swift.Bool?
+  public init(enableRiderPersonnelChat: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Checklist : Swift.Codable {
+  public var status: Swift.String?
+  public var items: [LotrModels.ChecklistItem]?
+  public var triggerType: Swift.String?
+  public init(status: Swift.String?, items: [LotrModels.ChecklistItem]?, triggerType: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ChecklistItem : Swift.Codable {
+  public enum Format : Swift.String, Swift.Codable {
+    case boolean
+    case singleChoice
+    case textField
+    case pin
+    case signature
+    case photo
+    case rating
+    case url
+    case date
+    case time
+    case datetime
+    case photoGallery
+    case multiChoice
+    case multiPhoto
+    case urlWithFeedback
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var key: Swift.String?
+  public var item: Swift.String?
+  public var format: LotrModels.ChecklistItem.Format?
+  public var possibleValues: [Swift.String]?
+  public var allowedValues: [LotrModels.ChecklistPossibleValue]?
+  public var optional: Swift.Bool?
+  public var additionalOptions: [Swift.String : Swift.String]?
+  public var isConditional: Swift.Bool?
+  public var conditionalChecklists: [LotrModels.ChecklistItem]?
+  public var checklistTriggerCondition: LotrModels.ChecklistTriggerCondition?
+  public init(key: Swift.String?, item: Swift.String?, format: LotrModels.ChecklistItem.Format?, possibleValues: [Swift.String]?, allowedValues: [LotrModels.ChecklistPossibleValue]?, optional: Swift.Bool?, additionalOptions: [Swift.String : Swift.String]?, isConditional: Swift.Bool?, conditionalChecklists: [LotrModels.ChecklistItem]?, checklistTriggerCondition: LotrModels.ChecklistTriggerCondition?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ChecklistPossibleValue : Swift.Codable {
+  public var key: Swift.String?
+  public var value: Swift.String?
+  public init(key: Swift.String?, value: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ChecklistSetting : Swift.Codable {
+  public enum ImageQuality : Swift.String, Swift.Codable {
+    case low
+    case medium
+    case high
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var imageQuality: LotrModels.ChecklistSetting.ImageQuality?
+  public var enableCropping: Swift.Bool?
+  public init(imageQuality: LotrModels.ChecklistSetting.ImageQuality?, enableCropping: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct ChecklistTriggerCondition : Swift.Codable {
+  public let value: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ChecklistsMap : Swift.Codable {
+  public let checklists: [Swift.String : [LotrModels.ChecklistItem]]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.ChecklistsMap {
+  public static func from(checklists: [LotrModels.Checklist]?, eventChecklists: [LotrModels.Checklist]? = nil) -> LotrModels.ChecklistsMap
+  public static func from(statusChecklists checklists: [LotrModels.Checklist]?) -> LotrModels.ChecklistsMap
+  public static func from(eventChecklists checklists: [LotrModels.Checklist]?) -> LotrModels.ChecklistsMap
+}
+open class Client : Swift.Codable {
+  public var name: Swift.String?
+  public var clientId: Swift.String?
+  public var stage: LotrModels.ClientStage?
+  public var clientPreferences: LotrModels.ClientPreferences?
+  public init(name: Swift.String?, clientId: Swift.String?, stage: LotrModels.ClientStage?, clientPreferences: LotrModels.ClientPreferences?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ClientAppConfig : Swift.Codable {
+  public enum UrlHandler : Swift.String, Swift.Codable {
+    case webview
+    case chrome
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum PhoneCallMethod : Swift.String, Swift.Codable {
+    case phone
+    case cloudTelephony
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var defaultLocale: LotrModels.Locale?
+  public var userLocationPollingParam: LotrModels.LocationPollingParam?
+  public var enableAllTasks: Swift.Bool?
+  public var autoTriggerNext: Swift.Bool?
+  public var autoTriggerNextHomebase: Swift.Bool?
+  public var skipStatuses: [Swift.String]?
+  public var notifyStatuses: [Swift.String]?
+  public var autoAccept: Swift.Bool?
+  public var offlineActions: Swift.Bool?
+  public var autoStartOnAccept: Swift.Bool?
+  public var hideCancel: Swift.Bool?
+  public var hideReject: Swift.Bool?
+  public var allowVisitReschedule: Swift.Bool?
+  public var collectLocations: Swift.Bool?
+  public var locationStaleTime: Swift.Int?
+  public var etaPollingPeriod: Swift.Int?
+  public var bulkUpdateLimit: Swift.Int?
+  public var urlHandler: LotrModels.ClientAppConfig.UrlHandler?
+  public var phoneCallMethod: LotrModels.ClientAppConfig.PhoneCallMethod?
+  public var hideChangeUserStatus: Swift.Bool?
+  public var requiresWifiEnabled: Swift.Bool?
+  public var enableUiBlockingDialogs: Swift.Bool?
+  public var sensorPollingParam: LotrModels.SensorPollingParam?
+  public var locationSetting: LotrModels.LocationSetting?
+  public var asyncCommunicationSetting: LotrModels.AsyncCommunicationSetting?
+  public var taskAppConfig: LotrModels.TaskAppConfig?
+  public var visitAppConfig: LotrModels.VisitAppConfig?
+  public var clientProfile: LotrModels.ClientProfile?
+  public var checklistSetting: LotrModels.ChecklistSetting?
+  public var acceptTaskPopupFrequency: Swift.Int?
+  public var notifyTaskCompletionConfig: LotrModels.NotifyTaskCompletionConfig?
+  public var displayConfig: LotrModels.DisplayConfig?
+  public var navigationConfig: LotrModels.NavigationConfig?
+  public var securityConfig: LotrModels.SecurityConfig?
+  public var enableSingleStartedTask: Swift.Bool?
+  public var canUpdatePhoto: Swift.Bool?
+  public var canUpdateName: Swift.Bool?
+  public var showOverviewMap: Swift.Bool?
+  public var allowStartMultipleTrips: Swift.Bool?
+  public var allowChangePassword: Swift.Bool?
+  public var shouldClubHomebases: Swift.Bool?
+  public var appPermissionsConfig: LotrModels.AppPermissionsConfig?
+  public var enforceGeofenceForHomebaseCompletion: Swift.Bool?
+  public var enforceGeofenceForCompletion: Swift.Bool?
+  public var taskCompletionGeofenceRadius: Swift.Int?
+  public var homebaseCompletionGeofenceRadius: Swift.Int?
+  public var phoneVerificationConfig: LotrModels.PhoneVerificationConfig?
+  public var lotrFeatureConfig: LotrModels.LotrFeatureConfig?
+  public var useNewTables: Swift.Bool?
+  public var trackOnlyWithActiveTrip: Swift.Bool?
+  public var autoCompleteTerminalHomebaseVisit: Swift.Bool?
+  public var allowVisitResequence: Swift.Bool?
+  public var geofenceRestrictionSettings: LotrModels.GeofenceRestrictionSettings?
+  public var taskTemplates: [LotrModels.TaskTemplate]?
+  public var enableCreateTask: Swift.Bool?
+  public var enable2FA: Swift.Bool?
+  public var scanningConfig: LotrModels.ScanningConfig?
+  public var enableDriftNotification: Swift.Bool?
+  public var enforceCompleteItemScanning: Swift.Bool?
+  public var enableAddLineItemsInLotr: Swift.Bool?
+  public var enableRiderLeaderboard: Swift.Bool?
+  public var riderPayoutSettings: LotrModels.RiderPayoutSettingsConfig?
+  public var barcodeScanRegex: Swift.String?
+  public var taskColourSettings: [LotrModels.TaskColourSetting]?
+  public var preferCompletedStatus: Swift.Bool?
+  public var shouldClubCustomerVisits: Swift.Bool?
+  public var allowEarlyTourStartByDays: Swift.Int?
+  public var paymentFlowSettings: LotrModels.PaymentFlowSettings?
+  public var refreshTaskOnCollectPayment: Swift.Bool?
+  public var timeCardSettings: LotrModels.TimeCardSettings?
+  public var taskPodUrlTemplate: Swift.String?
+  public var tourPodUrlTemplate: Swift.String?
+  public var tourDisplaySettings: LotrModels.TourDisplaySettings?
+  public var enablePodCaptioning: Swift.Bool?
+  public var enablePartialTransactionV2: Swift.Bool?
+  public var appFieldsUrlConfig: [LotrModels.AppFieldsUrlConfig]?
+  public init(defaultLocale: LotrModels.Locale?, userLocationPollingParam: LotrModels.LocationPollingParam?, enableAllTasks: Swift.Bool?, autoTriggerNext: Swift.Bool?, autoTriggerNextHomebase: Swift.Bool?, skipStatuses: [Swift.String]?, notifyStatuses: [Swift.String]?, autoAccept: Swift.Bool?, offlineActions: Swift.Bool?, autoStartOnAccept: Swift.Bool?, hideCancel: Swift.Bool?, hideReject: Swift.Bool?, allowVisitReschedule: Swift.Bool?, collectLocations: Swift.Bool?, locationStaleTime: Swift.Int?, etaPollingPeriod: Swift.Int?, bulkUpdateLimit: Swift.Int?, urlHandler: LotrModels.ClientAppConfig.UrlHandler?, phoneCallMethod: LotrModels.ClientAppConfig.PhoneCallMethod?, hideChangeUserStatus: Swift.Bool?, requiresWifiEnabled: Swift.Bool?, enableUiBlockingDialogs: Swift.Bool?, sensorPollingParam: LotrModels.SensorPollingParam?, locationSetting: LotrModels.LocationSetting?, asyncCommunicationSetting: LotrModels.AsyncCommunicationSetting?, taskAppConfig: LotrModels.TaskAppConfig?, visitAppConfig: LotrModels.VisitAppConfig?, clientProfile: LotrModels.ClientProfile?, checklistSetting: LotrModels.ChecklistSetting?, acceptTaskPopupFrequency: Swift.Int?, notifyTaskCompletionConfig: LotrModels.NotifyTaskCompletionConfig?, displayConfig: LotrModels.DisplayConfig?, navigationConfig: LotrModels.NavigationConfig?, securityConfig: LotrModels.SecurityConfig?, enableSingleStartedTask: Swift.Bool?, canUpdatePhoto: Swift.Bool?, canUpdateName: Swift.Bool?, showOverviewMap: Swift.Bool?, allowStartMultipleTrips: Swift.Bool?, allowChangePassword: Swift.Bool?, shouldClubHomebases: Swift.Bool?, appPermissionsConfig: LotrModels.AppPermissionsConfig?, enforceGeofenceForHomebaseCompletion: Swift.Bool?, enforceGeofenceForCompletion: Swift.Bool?, taskCompletionGeofenceRadius: Swift.Int?, homebaseCompletionGeofenceRadius: Swift.Int?, phoneVerificationConfig: LotrModels.PhoneVerificationConfig?, lotrFeatureConfig: LotrModels.LotrFeatureConfig?, useNewTables: Swift.Bool?, trackOnlyWithActiveTrip: Swift.Bool?, autoCompleteTerminalHomebaseVisit: Swift.Bool?, allowVisitResequence: Swift.Bool?, geofenceRestrictionSettings: LotrModels.GeofenceRestrictionSettings?, taskTemplates: [LotrModels.TaskTemplate]?, enableCreateTask: Swift.Bool?, enable2FA: Swift.Bool?, scanningConfig: LotrModels.ScanningConfig?, enableDriftNotification: Swift.Bool?, enforceCompleteItemScanning: Swift.Bool?, enableAddLineItemsInLotr: Swift.Bool?, enableRiderLeaderboard: Swift.Bool?, taskColourSettings: [LotrModels.TaskColourSetting]?, riderPayoutSettings: LotrModels.RiderPayoutSettingsConfig?, barcodeScanRegex: Swift.String?, preferCompletedStatus: Swift.Bool?, shouldClubCustomerVisits: Swift.Bool?, allowEarlyTourStartByDays: Swift.Int?, paymentFlowSettings: LotrModels.PaymentFlowSettings?, refreshTaskOnCollectPayment: Swift.Bool?, timeCardSettings: LotrModels.TimeCardSettings?, taskPodUrlTemplate: Swift.String?, tourPodUrlTemplate: Swift.String?, tourDisplaySettings: LotrModels.TourDisplaySettings?, enablePodCaptioning: Swift.Bool?, enablePartialTransactionV2: Swift.Bool?, appFieldsUrlConfig: [LotrModels.AppFieldsUrlConfig]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ClientAppState : Swift.Codable {
+  public var state: Swift.String?
+  public init(state: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ClientPreferences : Swift.Codable {
+  public var liveViewSettings: LotrModels.LiveViewSettings?
+  public var clientProfileSettings: LotrModels.ClientProfileSettings?
+  public var localeSettings: LotrModels.LocaleSettings?
+  public var chatSettings: LotrModels.ChatSettings?
+  public init(liveViewSettings: LotrModels.LiveViewSettings?, clientProfileSettings: LotrModels.ClientProfileSettings?, localeSettings: LotrModels.LocaleSettings?, chatSettings: LotrModels.ChatSettings?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ClientProfile : Swift.Codable {
+  public var items: [LotrModels.ClientProfileItem]?
+  public init(items: [LotrModels.ClientProfileItem]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ClientProfileItem : Swift.Codable {
+  public enum Action : Swift.String, Swift.Codable {
+    case intent
+    case url
+    case _none
+    case implicitIntent
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var action: LotrModels.ClientProfileItem.Action?
+  public var arguments: [Swift.String]?
+  public init(action: LotrModels.ClientProfileItem.Action?, arguments: [Swift.String]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ClientProfileSettings : Swift.Codable {
+  public var workflowType: LotrModels.WorkflowType?
+  public init(workflowType: LotrModels.WorkflowType?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum ClientStage : Swift.String, Swift.Codable {
+  case test
+  case demo
+  case devo
+  case pilot
+  case preProd
+  case prod
+  case prodPlus
+  case demoInternal
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class ComplexFilter : Swift.Codable {
+  public var filters: [LotrModels.Filter]?
+  public var expressionLogicalOperator: LotrModels.LogicalOperation?
+  public init(filters: [LotrModels.Filter]?, expressionLogicalOperator: LotrModels.LogicalOperation?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ContactPoint : Swift.Codable {
+  public var name: Swift.String?
+  public var number: Swift.String?
+  public var email: Swift.String?
+  public var alternateNumber: Swift.String?
+  public init(name: Swift.String?, number: Swift.String?, email: Swift.String?, alternateNumber: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ContactsResponse : Swift.Codable {
+  public var userId: Swift.String?
+  public var name: Swift.String?
+  public var photoUrl: Swift.String?
+  public var riderId: Swift.String?
+  public init(userId: Swift.String, name: Swift.String, photoUrl: Swift.String, riderId: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ControlEventPublishRequest : Swift.Codable {
+  public var eventWrapper: LotrModels.ControlEventWrapper?
+  public var collapse: Swift.Bool?
+  public var shouldRegister: Swift.Bool?
+  public init(eventWrapper: LotrModels.ControlEventWrapper?, collapse: Swift.Bool?, shouldRegister: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ControlEventWrapper : Swift.Codable {
+  public enum ModelType : Swift.String, Swift.Codable {
+    case taskUpdate
+    case userUpdate
+    case stateDump
+    case configUpdate
+    case logoutUser
+    case tourUpdate
+    case appUpdate
+    case riderPayout
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var id: Swift.String?
+  public var type: LotrModels.ControlEventWrapper.ModelType?
+  public var timestamp: Swift.Int64?
+  public var eventString: Swift.String?
+  public var tag: Swift.String?
+  public init(id: Swift.String?, type: LotrModels.ControlEventWrapper.ModelType?, timestamp: Swift.Int64?, eventString: Swift.String?, tag: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct Crate : Swift.Codable {
+  public let id: Swift.String?
+  public let modelId: Swift.String?
+  public let type: Swift.String?
+  public let subType: Swift.String?
+  public let items: [LotrModels.BaseLineItem]?
+  public init(id: Swift.String?, modelId: Swift.String?, type: Swift.String?, subType: Swift.String?, items: [LotrModels.BaseLineItem]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class CratingInfo : Swift.Codable {
+  public var crates: Swift.Int?
+  public var crateDetails: [LotrModels.Crate]?
+  public var looseItems: [LotrModels.BaseLineItem]?
+  public init(crates: Swift.Int?, crateDetails: [LotrModels.Crate]?, looseItems: [LotrModels.BaseLineItem]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class CreateTaskRequest : Swift.Codable {
+  public var riderId: Swift.String?
+  public var templateId: Swift.String?
+  public var teamId: Swift.String?
+  public var homebaseVisit: LotrModels.HomebaseVisitInfo?
+  public var customerVisit: LotrModels.VisitInfo?
+  public var dropVisit: LotrModels.VisitInfo?
+  public var lineItems: [LotrModels.MinimalLineItem]?
+  public var amount: LotrModels.AmountTransaction?
+  public var selfAssign: Swift.Bool?
+  public init(riderId: Swift.String?, templateId: Swift.String?, teamId: Swift.String?, homebaseVisit: LotrModels.HomebaseVisitInfo?, customerVisit: LotrModels.VisitInfo?, dropVisit: LotrModels.VisitInfo?, lineItems: [LotrModels.MinimalLineItem]?, amount: LotrModels.AmountTransaction?, selfAssign: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct CustomFieldContext : Swift.Codable {
+  public let key: Swift.String?
+  public let name: Swift.String?
+  public let selectedValue: Swift.String?
+  public let metadata: LotrModels.CustomFieldContextMetaData?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum DataType : Swift.String, Swift.Codable {
+  case string
+  case boolean
+  case integer
+  case positiveInteger
+  case double
+  case positiveDouble
+  case wholeNumber
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct CustomFieldContextMetaData : Swift.Codable {
+  public let dataType: LotrModels.DataType?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+open class DateTimeRequest : Swift.Codable {
+  public var timestamp: Foundation.Date?
+  public init(timestamp: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class DateTimeResponse : Swift.Codable {
+  public var timestamp: Foundation.Date?
+  public init(timestamp: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class DetailedTour : Swift.Codable {
+  public var tourId: LotrModels.TourId?
+  public var tourName: Swift.String?
+  public var providedTourName: Swift.String?
+  public var plannedTour: LotrModels.Tour?
+  public var tourDate: Swift.String?
+  public var isMultiDay: Swift.Bool?
+  public var eta: [Swift.String : LotrModels.EtaWrapper]?
+  public var timeSlot: LotrModels.TimeSlot?
+  public var status: LotrModels.DetailedTourStatus?
+  public var statusUpdates: [LotrModels.DetailedTourStatus]?
+  public var customProperties: [LotrModels.CustomFieldContext]?
+  public var executedTourSummary: LotrModels.TourSummary?
+  public var currentResources: [LotrModels.ResourceCurrentValue]?
+  public init(tourId: LotrModels.TourId?, tourName: Swift.String?, providedTourName: Swift.String?, plannedTour: LotrModels.Tour?, tourDate: Swift.String?, isMultiDay: Swift.Bool?, eta: [Swift.String : LotrModels.EtaWrapper]?, timeSlot: LotrModels.TimeSlot?, status: LotrModels.DetailedTourStatus?, statusUpdates: [LotrModels.DetailedTourStatus]?, customProperties: [LotrModels.CustomFieldContext]?, executedTourSummary: LotrModels.TourSummary?, currentResources: [LotrModels.ResourceCurrentValue])
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class DetailedTourStatus : Swift.Codable {
+  public var status: LotrModels.TourStatus?
+  public var triggerTime: Foundation.Date?
+  public init(status: LotrModels.TourStatus?, triggerTime: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class DeviceInfo : Swift.Codable {
+  public var osName: Swift.String?
+  public var osVersion: Swift.String?
+  public var deviceType: Swift.String?
+  public var deviceId: Swift.String?
+  public var deviceIdType: Swift.String?
+  public var registeredOn: Foundation.Date?
+  public var extra: Swift.String?
+  public init(osName: Swift.String?, osVersion: Swift.String?, deviceType: Swift.String?, deviceId: Swift.String?, deviceIdType: Swift.String?, registeredOn: Foundation.Date?, extra: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Dimensions : Swift.Codable {
+  public var length: Swift.Double?
+  public var breadth: Swift.Double?
+  public var height: Swift.Double?
+  public init(length: Swift.Double?, breadth: Swift.Double?, height: Swift.Double?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class DisplayConfig : Swift.Codable {
+  public var primaryIdentifier: LotrModels.DisplayIdentifier?
+  public var secondaryIdentifier: LotrModels.DisplayIdentifier?
+  public var tourDaysPastLimit: Swift.Int?
+  public var tourDaysFutureLimit: Swift.Int?
+  public var primaryCardConfig: LotrModels.CardConfig?
+  public var secondaryCardConfig: LotrModels.CardConfig?
+  public var showCratingInfo: Swift.Bool?
+  public var showOrderHistory: Swift.Bool?
+  public var showContactUs: Swift.Bool?
+  public var captureTransactionEnd: Swift.Bool?
+  public var greetingsUrl: Swift.String?
+  public var showCustomFields: Swift.Bool?
+  public var enableAssetTracking: Swift.Bool?
+  public var doorbellCredentials: LotrModels.DoorbellCredentials?
+  public init(primaryIdentifier: LotrModels.DisplayIdentifier?, secondaryIdentifier: LotrModels.DisplayIdentifier?, tourDaysPastLimit: Swift.Int?, tourDaysFutureLimit: Swift.Int?, primaryCardConfig: LotrModels.CardConfig?, secondaryCardConfig: LotrModels.CardConfig?, showCratingInfo: Swift.Bool?, showOrderHistory: Swift.Bool?, showContactUs: Swift.Bool?, captureTransactionEnd: Swift.Bool?, greetingsUrl: Swift.String?, showCustomFields: Swift.Bool?, enableAssetTracking: Swift.Bool?, doorbellCredentials: LotrModels.DoorbellCredentials?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum DisplayIdentifier : Swift.String, Swift.Codable {
+  case taskId
+  case visitName
+  case alternateId
+  case locationName
+  case customerName
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct DoorbellCredentials : Swift.Codable {
+  public let doorbellId: Swift.String?
+  public let doorbellKey: Swift.String?
+  public init(doorbellId: Swift.String?, doorbellKey: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class Eta : Swift.Codable {
+  public var arrivalTime: Foundation.Date?
+  public var estimatedOn: Foundation.Date?
+  public init(arrivalTime: Foundation.Date?, estimatedOn: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class EtaWrapper : Swift.Codable {
+  public var initialEta: LotrModels.Eta?
+  public var currentEta: LotrModels.Eta?
+  public init(initialEta: LotrModels.Eta?, currentEta: LotrModels.Eta?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct Etas : Swift.Codable {
+  public let etaMap: [Swift.String : Foundation.Date]
+  public let plannedEtaMap: [Swift.String : Foundation.Date]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.Etas {
+  public static func from(visitEta: [Swift.String : LotrModels.EtaWrapper]?) -> LotrModels.Etas
+  public func toLotrEtas() -> [Swift.String : LotrModels.MinimalEtaWrapper]
+}
+public enum EventChecklistsStatus : Swift.String, Swift.Codable {
+  case slaBreach
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ExchangeTypeEnum : Swift.String, Swift.Codable {
+  case collect
+  case give
+  case _none
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ExtendedActiveWorkingSessionResponse : Swift.Codable {
+  public let activeWorkingSession: LotrModels.WorkingSession?
+  public let userStatus: LotrModels.UserStatus?
+  public let rosterDetail: LotrModels.RosterDetail?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class ExtendedTour : LotrModels.DetailedTour {
+  public var vehicle: LotrModels.MinimalVehicle?
+  public init(vehicle: LotrModels.MinimalVehicle?, tourId: LotrModels.TourId?, tourName: Swift.String?, providedTourName: Swift.String?, plannedTour: LotrModels.Tour?, tourDate: Swift.String?, isMultiDay: Swift.Bool?, eta: [Swift.String : LotrModels.EtaWrapper]?, timeSlot: LotrModels.TimeSlot?, status: LotrModels.DetailedTourStatus?, statusUpdates: [LotrModels.DetailedTourStatus]?, customProperties: [LotrModels.CustomFieldContext]?, executedTourSummary: LotrModels.TourSummary?, currentResources: [LotrModels.ResourceCurrentValue])
+  override public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ExtendedUserState : Swift.Codable {
+  public var clientId: Swift.String?
+  public var userId: Swift.String?
+  public var name: Swift.String?
+  public var email: Swift.String?
+  public var phone: Swift.String?
+  public var photoUrl: Swift.String?
+  public var status: LotrModels.UserStatus?
+  public var isPhoneNumberVerified: Swift.Bool?
+  public var phoneNumberVerifiedAt: Foundation.Date?
+  public init(clientId: Swift.String?, userId: Swift.String?, name: Swift.String?, email: Swift.String?, phone: Swift.String?, photoUrl: Swift.String?, status: LotrModels.UserStatus?, isPhoneNumberVerified: Swift.Bool?, phoneNumberVerifiedAt: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+extension Swift.String : Swift.CodingKey {
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(stringValue: Swift.String)
+  public var intValue: Swift.Int? {
+    get
+  }
+  public init?(intValue _: Swift.Int)
+}
+open class FileUploadResponse : Swift.Codable {
+  public enum Status : Swift.String, Swift.Codable {
+    case success
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var status: LotrModels.FileUploadResponse.Status?
+  public init(status: LotrModels.FileUploadResponse.Status?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Filter : Swift.Codable {
+  public var name: Swift.String?
+  public var operation: LotrModels.FilterOperation?
+  public var value: Swift.String?
+  public var values: [Swift.String]?
+  public var logicalOperation: LotrModels.LogicalOperation?
+  public var expressionLogicalOperation: LotrModels.LogicalOperation?
+  public var allowEmptyOrNull: Swift.Bool?
+  public var caseSensitive: Swift.Bool?
+  public init(name: Swift.String?, operation: LotrModels.FilterOperation?, value: Swift.String?, values: [Swift.String]?, logicalOperation: LotrModels.LogicalOperation?, expressionLogicalOperation: LotrModels.LogicalOperation?, allowEmptyOrNull: Swift.Bool?, caseSensitive: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum FilterOperation : Swift.String, Swift.Codable {
+  case equals
+  case notEquals
+  case startsWith
+  case contains
+  case containsToken
+  case notContainsToken
+  case greaterThan
+  case lesserThan
+  case greaterThanOrEqualTo
+  case lesserThanOrEqualTo
+  case isNull
+  case isNotNull
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct GenerateJwtFromRefreshTokenRequest : Swift.Codable {
+  public let refreshToken: Swift.String?
+  public init(refreshToken: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class GenerateOtpRequest : Swift.Codable {
+  public var phoneNumber: Swift.String?
+  public init(phoneNumber: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum GeocodingGoodness : Swift.String, Swift.Codable {
+  case high
+  case low
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class GeocodingMetadata : Swift.Codable {
+  public var goodness: LotrModels.GeocodingGoodness?
+  public init(goodness: LotrModels.GeocodingGoodness?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GeofenceRestrictionSettings : Swift.Codable {
+  public var enforceGeofenceForHomebaseCompletion: Swift.Bool?
+  public var enforceGeofenceForCompletion: Swift.Bool?
+  public var homebaseCompletionGeofenceRadius: Swift.Int?
+  public var taskCompletionGeofenceRadius: Swift.Int?
+  public var enforceGeofenceForTripStart: Swift.Bool?
+  public var enforceGeofenceForTripCompletion: Swift.Bool?
+  public var tripCompletionGeofenceRadius: Swift.Int?
+  public var applyGeofencesToOnlyVerifiedLocations: Swift.Bool?
+  public var enforceGeofenceForCustomerCancellation: Swift.Bool?
+  public var customerCancellationGeofenceRadius: Swift.Int?
+  public var enforceGeofenceForCustomerReschedule: Swift.Bool?
+  public var customerRescheduleGeofenceRadius: Swift.Int?
+  public var enforceGeofenceForChecklistSubmission: Swift.Bool?
+  public var enforceGeofenceForCustomerArrival: Swift.Bool?
+  public var customerArrivalGeofenceRadius: Swift.Int?
+  public var enforceGeofenceForHomebaseArrival: Swift.Bool?
+  public var homebaseArrivalGeofenceRadius: Swift.Int?
+  public var disallowMockedLocations: Swift.Bool?
+  public var enforceGeofenceForClockIn: Swift.Bool?
+  public var clockedInGeofenceRadius: Swift.Int?
+  public var enforceGeofenceForClockOut: Swift.Bool?
+  public var clockedOutGeofenceRadius: Swift.Int?
+  public init(enforceGeofenceForHomebaseCompletion: Swift.Bool?, enforceGeofenceForCompletion: Swift.Bool?, homebaseCompletionGeofenceRadius: Swift.Int?, taskCompletionGeofenceRadius: Swift.Int?, enforceGeofenceForTripStart: Swift.Bool?, enforceGeofenceForTripCompletion: Swift.Bool?, tripCompletionGeofenceRadius: Swift.Int?, applyGeofencesToOnlyVerifiedLocations: Swift.Bool?, enforceGeofenceForCustomerCancellation: Swift.Bool?, customerCancellationGeofenceRadius: Swift.Int?, enforceGeofenceForCustomerReschedule: Swift.Bool?, customerRescheduleGeofenceRadius: Swift.Int?, enforceGeofenceForClockIn: Swift.Bool?, clockedInGeofenceRadius: Swift.Int?, enforceGeofenceForClockOut: Swift.Bool?, clockedOutGeofenceRadius: Swift.Int?, enforceGeofenceForChecklistSubmission: Swift.Bool?, enforceGeofenceForCustomerArrival: Swift.Bool?, customerArrivalGeofenceRadius: Swift.Int?, enforceGeofenceForHomebaseArrival: Swift.Bool?, homebaseArrivalGeofenceRadius: Swift.Int?, disallowMockedLocations: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Geometry : Swift.Codable {
+  public var latLng: LotrModels.LatLng?
+  public init(latLng: LotrModels.LatLng?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetDeviceHistoryResponse : Swift.Codable {
+  public var deviceInfo: [LotrModels.DeviceInfo]?
+  public init(deviceInfo: [LotrModels.DeviceInfo]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetMasterLineItemsResponse : Swift.Codable {
+  public var lineItems: [LotrModels.LineItem]?
+  public var paginationInfo: LotrModels.PaginationInfo?
+  public init(lineItems: [LotrModels.LineItem]?, paginationInfo: LotrModels.PaginationInfo?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetMinimalHomebasesResponse : Swift.Codable {
+  public var homebases: [LotrModels.MinimalHomebase]?
+  public init(homebases: [LotrModels.MinimalHomebase]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetMinimalTeamsResponse : Swift.Codable {
+  public var teams: [LotrModels.MinimalTeam]?
+  public init(teams: [LotrModels.MinimalTeam]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetRiderChatResponseLogin : Swift.Codable {
+  public var userId: Swift.String?
+  public var userToken: Swift.String?
+  public var name: Swift.String?
+  public var appId: Swift.String?
+  public init(userId: Swift.String, userToken: Swift.String, name: Swift.String, appId: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetRiderStatsResponse : Swift.Codable {
+  public var stats: [LotrModels.RiderStats]
+  public init(stats: [LotrModels.RiderStats])
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetTimeSlotsResponse : Swift.Codable {
+  public var slots: [LotrModels.TimeSlot]?
+  public init(slots: [LotrModels.TimeSlot]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetUnackedMessagesBulkResponse : Swift.Codable {
+  public var ackMessages: [LotrModels.AckMessage]?
+  public var tasks: [LotrModels.Task]?
+  public var tourResponses: [LotrModels.UserToursResponse]?
+  public var user: LotrModels.User?
+  public var configUpdateEvent: LotrModels.AppConfigUpdateEvent?
+  public var stateDumpEvent: LotrModels.StateDumpEvent?
+  public var logoutEvent: LotrModels.LogoutUserEvent?
+  public var appUpdateEvent: LotrModels.AppUpdateEvent?
+  public var riderPayoutEvent: LotrModels.RiderPayoutEvent?
+  public init(ackMessages: [LotrModels.AckMessage]?, tasks: [LotrModels.Task]?, tourResponses: [LotrModels.UserToursResponse]?, user: LotrModels.User?, configUpdateEvent: LotrModels.AppConfigUpdateEvent?, stateDumpEvent: LotrModels.StateDumpEvent?, logoutEvent: LotrModels.LogoutUserEvent?, appUpdateEvent: LotrModels.AppUpdateEvent?, riderPayoutEvent: LotrModels.RiderPayoutEvent?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class GetUnackedMessagesResponse : Swift.Codable {
+  public var messages: [LotrModels.ControlEventWrapper]?
+  public init(messages: [LotrModels.ControlEventWrapper]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum HandlingUnitEnum : Swift.String, Swift.Codable {
+  case quantity
+  case weight
+  case volume
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class HomebaseVisitDetails : Swift.Codable {
+  public var homebaseId: Swift.String?
+  public var slot: LotrModels.TimeSlot?
+  public var transactionDuration: Swift.Int?
+  public init(homebaseId: Swift.String?, slot: LotrModels.TimeSlot?, transactionDuration: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class HomebaseVisitInfo : Swift.Codable {
+  public var homebaseId: Swift.String?
+  public var transactionDuration: Swift.Int?
+  public init(homebaseId: Swift.String?, transactionDuration: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ItemPackagingInfo : Swift.Codable {
+  public var isCrated: Swift.Bool?
+  public var cartons: Swift.Int?
+  public var pieces: Swift.Int?
+  public init(isCrated: Swift.Bool?, cartons: Swift.Int?, pieces: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct ItemVolume : Swift.Codable {
+  public let value: Swift.String?
+  public let unit: LotrModels.ItemVolumeUnit?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum ItemVolumeUnit : Swift.String, Swift.Codable {
+  case cmm
+  case ccm
+  case cc
+  case cm
+  case m3
+  case cin
+  case ci
+  case cft
+  case cf
+  case cyd
+  case l
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Jwt : Swift.Codable {
+  public let accessToken: Swift.String?
+  public let refreshToken: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class LatLng : Swift.Codable {
+  public var lat: Swift.Double?
+  public var lng: Swift.Double?
+  public var accuracy: Swift.Int?
+  public init(lat: Swift.Double?, lng: Swift.Double?, accuracy: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LineItem : Swift.Codable {
+  public var name: Swift.String?
+  public var description: Swift.String?
+  public var quantity: Swift.Int?
+  public var id: Swift.String?
+  public var price: LotrModels.Amount?
+  public var imageUrl: Swift.String?
+  public var transactionStatus: LotrModels.TransactionStatus?
+  public var packageInfo: LotrModels.ItemPackagingInfo?
+  public var scanId: Swift.String?
+  public var transactionDuration: Swift.Int?
+  public var parts: [LotrModels.LineItemPart]?
+  public var handlingUnit: LotrModels.HandlingUnitEnum?
+  public var handlingUnits: [LotrModels.HandlingUnitEnum]?
+  public var totalWeight: LotrModels.Weight?
+  public var totalVolume: LotrModels.ItemVolume?
+  public init(name: Swift.String?, quantity: Swift.Int?, id: Swift.String?, price: LotrModels.Amount?, imageUrl: Swift.String?, transactionStatus: LotrModels.TransactionStatus?, packageInfo: LotrModels.ItemPackagingInfo?, scanId: Swift.String?, transactionDuration: Swift.Int?, parts: [LotrModels.LineItemPart]?, handlingUnit: LotrModels.HandlingUnitEnum?, description: Swift.String?, handlingUnits: [LotrModels.HandlingUnitEnum]?, totalWeight: LotrModels.Weight?, totalVolume: LotrModels.ItemVolume?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LineItemPart : Swift.Codable {
+  public var volume: LotrModels.Volume?
+  public var weight: Swift.Double?
+  public var dimensions: LotrModels.Dimensions?
+  public init(volume: LotrModels.Volume?, weight: Swift.Double?, dimensions: LotrModels.Dimensions?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LineItemTransactionStatus : Swift.Codable {
+  public var id: Swift.String?
+  public var transactionStatus: LotrModels.TransactionStatus?
+  public init(id: Swift.String?, transactionStatus: LotrModels.TransactionStatus?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LiveViewSettings : Swift.Codable {
+  public var logo: Swift.String?
+  public init(logo: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LiveViewVisibilitySettings : Swift.Codable {
+  public var isTabbedLiveViewEnabled: Swift.Bool?
+  public var isOrderTabEnabled: Swift.Bool?
+  public var isRiderTabEnabled: Swift.Bool?
+  public var isAlertsTabEnabled: Swift.Bool?
+  public init(isTabbedLiveViewEnabled: Swift.Bool?, isOrderTabEnabled: Swift.Bool?, isRiderTabEnabled: Swift.Bool?, isAlertsTabEnabled: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Locale : Swift.Codable {
+  public var lang: Swift.String?
+  public var country: Swift.String?
+  public init(lang: Swift.String?, country: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LocaleSettings : Swift.Codable {
+  public enum SystemOfMeasurement : Swift.String, Swift.Codable {
+    case metricSystem
+    case imperialSystem
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var currency: Swift.String?
+  public var currencyDecimalPoints: Swift.Int?
+  public var countryCode: Swift.String?
+  public var countryDialCode: Swift.String?
+  public var countryCenter: LotrModels.MinimalLatLng?
+  public var timezone: Swift.String?
+  public var multiTimeZoneSupportEnabled: Swift.Bool?
+  public var defaultLanguage: Swift.String?
+  public var systemOfMeasurement: LotrModels.LocaleSettings.SystemOfMeasurement?
+  public init(currency: Swift.String?, countryCode: Swift.String?, countryDialCode: Swift.String?, countryCenter: LotrModels.MinimalLatLng?, timezone: Swift.String?, multiTimeZoneSupportEnabled: Swift.Bool?, defaultLanguage: Swift.String?, systemOfMeasurement: LotrModels.LocaleSettings.SystemOfMeasurement?, currencyDecimalPoints: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Location : Swift.Codable {
+  public enum ModelType : Swift.String, Swift.Codable {
+    case place
+    case droppedPin
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var lat: Swift.Double?
+  public var lng: Swift.Double?
+  public var name: Swift.String?
+  public var address: Swift.String?
+  public var accuracy: Swift.Double?
+  public var provider: Swift.String?
+  public var timestamp: Swift.Int64?
+  public var speed: Swift.Float?
+  public var direction: Swift.Float?
+  public var distance: Swift.Int?
+  public var gpsEnabled: Swift.Bool?
+  public var type: LotrModels.Location.ModelType?
+  public var valid: Swift.Bool?
+  public init(lat: Swift.Double?, lng: Swift.Double?, name: Swift.String?, address: Swift.String?, accuracy: Swift.Double?, provider: Swift.String?, timestamp: Swift.Int64?, speed: Swift.Float?, direction: Swift.Float?, distance: Swift.Int?, gpsEnabled: Swift.Bool?, type: LotrModels.Location.ModelType?, valid: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public typealias LocusLocation = LotrModels.Location
+open class LocationDetails : Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public var verified: Swift.Bool?
+  public init(id: Swift.String?, name: Swift.String?, verified: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LocationPollingParam : Swift.Codable {
+  public var leftDistance: Swift.Int?
+  public var minChange: Swift.Int?
+  public var maxTimeGap: Swift.Int?
+  public var minTimeGap: Swift.Int?
+  public init(leftDistance: Swift.Int?, minChange: Swift.Int?, maxTimeGap: Swift.Int?, minTimeGap: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum LocationProvider : Swift.String, Swift.Codable {
+  case google
+  case skyhook
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class LocationSetting : Swift.Codable {
+  public var collectLocations: Swift.Bool?
+  public var locationStaleTime: Swift.Int?
+  public var warnInaccurateLocation: Swift.Bool?
+  public var allowMockLocation: Swift.Bool?
+  public var provider: LotrModels.LocationProvider?
+  public var providerOverride: LotrModels.LocationProvider?
+  public var skyhookKey: Swift.String?
+  public var skyhookTilingSettings: LotrModels.SkyhookTilingSettings?
+  public init(collectLocations: Swift.Bool?, locationStaleTime: Swift.Int?, warnInaccurateLocation: Swift.Bool?, allowMockLocation: Swift.Bool?, provider: LotrModels.LocationProvider?, providerOverride: LotrModels.LocationProvider?, skyhookKey: Swift.String?, skyhookTilingSettings: LotrModels.SkyhookTilingSettings?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LocationUpdateRequestWrapper : Swift.Codable {
+  public var location: LotrModels.Location?
+  public var batteryStatus: LotrModels.BatteryStatus?
+  public init(location: LotrModels.Location?, batteryStatus: LotrModels.BatteryStatus?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LogWrapper : Swift.Codable {
+  public var payload: Swift.String?
+  public init(payload: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum LogicalOperation : Swift.String, Swift.Codable {
+  case and
+  case or
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct LoginFlowDetails : Swift.Codable {
+  public let universalLoginEnforced: Swift.Bool?
+  public let showForgotPassword: Swift.Bool?
+  public let primaryLoginFlowType: LotrModels.LoginFlowType?
+  public let otpRetryPeriodInSeconds: Swift.Int?
+  public let countryDialCode: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum LoginFlowType : Swift.String, Swift.Codable {
+  case otp
+  case universalLogin
+  case userNameAndPassword
+  case userNameAndPasswordWithJwt
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum LoginOtpResponseStatus : Swift.String, Swift.Codable {
+  case SUCCESS, FAILURE
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class LogoutUserEvent : Swift.Codable {
+  public var forceLogout: Swift.Bool?
+  public init(forceLogout: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LotrFeatureConfig : Swift.Codable {
+  public var enableTrips: Swift.Bool?
+  public var showTripsByDefault: Swift.Bool?
+  public init(enableTrips: Swift.Bool?, showTripsByDefault: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LotrInformation : Swift.Codable {
+  public var versionCode: Swift.Int?
+  public var versionName: Swift.String?
+  public var earliestVersion: Swift.Int?
+  public var url: Swift.String?
+  public var md5: Swift.String?
+  public init(versionCode: Swift.Int?, versionName: Swift.String?, earliestVersion: Swift.Int?, url: Swift.String?, md5: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LotrVersionResponse : Swift.Codable {
+  public var isUpdateRequired: Swift.Bool?
+  public var lotrInformation: LotrModels.LotrInformation?
+  public init(isUpdateRequired: Swift.Bool?, lotrInformation: LotrModels.LotrInformation?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class LotrVersionsResponse : Swift.Codable {
+  public var versions: [Swift.String : LotrModels.NotificationChannel]?
+  public init(versions: [Swift.String : LotrModels.NotificationChannel]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MakePhoneCallRequest : Swift.Codable {
+  public var userId: Swift.String?
+  public init(userId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalContactPoint : Swift.Codable {
+  public var name: Swift.String?
+  public var number: Swift.String?
+  public init(name: Swift.String?, number: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalCrateSettings : Swift.Codable {
+  public var enableCrating: Swift.Bool?
+  public init(enableCrating: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalEta : Swift.Codable {
+  public var arrivalTime: Foundation.Date?
+  public init(arrivalTime: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalEtaWrapper : Swift.Codable {
+  public var currentEta: LotrModels.MinimalEta?
+  public init(currentEta: LotrModels.MinimalEta?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalHomebase : Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public var latLng: LotrModels.MinimalLatLng?
+  public var address: LotrModels.StructuredAddress?
+  public init(id: Swift.String?, name: Swift.String?, latLng: LotrModels.MinimalLatLng?, address: LotrModels.StructuredAddress?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalLatLng : Swift.Codable {
+  public var lat: Swift.Double?
+  public var lng: Swift.Double?
+  public init(lat: Swift.Double?, lng: Swift.Double?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalLineItem : Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public var quantity: Swift.Int?
+  public var price: LotrModels.Amount?
+  public var parts: [LotrModels.LineItemPart]?
+  public init(id: Swift.String?, name: Swift.String?, quantity: Swift.Int?, price: LotrModels.Amount?, parts: [LotrModels.LineItemPart]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalLocation : Swift.Codable {
+  public var lat: Swift.Double?
+  public var lng: Swift.Double?
+  public var accuracy: Swift.Double?
+  public var timestamp: Swift.Int64?
+  public var distance: Swift.Int?
+  public init(lat: Swift.Double?, lng: Swift.Double?, accuracy: Swift.Double?, timestamp: Swift.Int64?, distance: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class MinimalResource : Swift.Codable {
+  public var name: Swift.String?
+  public var value: Swift.Double?
+  public init(name: Swift.String?, value: Swift.Double?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct MinimalRoster : Swift.Codable {
+  public let shift: LotrModels.MinimalShift?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MinimalShift : Swift.Codable {
+  public let tagId: LotrModels.TagId?
+  public let tagName: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class MinimalTeam : Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public init(id: Swift.String?, name: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct MinimalVehicle : Swift.Codable {
+  public var vehicleName: Swift.String?
+  public var vehicleRegistrationNo: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class MinimalVolume : Swift.Codable {
+  public var value: Swift.String?
+  public var unit: LotrModels.VolumeUnit?
+  public init(value: Swift.String?, unit: LotrModels.VolumeUnit?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class NavigationConfig : Swift.Codable {
+  public var restrictions: [LotrModels.NavigationRestriction]?
+  public var useAddressToNavigate: Swift.Bool?
+  public init(restrictions: [LotrModels.NavigationRestriction]?, useAddressToNavigate: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum NavigationRestriction : Swift.String, Swift.Codable {
+  case highways
+  case ferries
+  case tolls
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class NotificationChannel : Swift.Codable {
+  public enum ModelType : Swift.String, Swift.Codable {
+    case gcm
+    case fcm
+    case apns
+    case apnsSandbox
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var type: LotrModels.NotificationChannel.ModelType?
+  public var channelId: Swift.String?
+  public var appVersion: Swift.String?
+  public init(type: LotrModels.NotificationChannel.ModelType?, channelId: Swift.String?, appVersion: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class NotifyTaskCompletionConfig : Swift.Codable {
+  public var enable: Swift.Bool?
+  public var notifyWaitTime: Swift.Int?
+  public init(enable: Swift.Bool?, notifyWaitTime: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class OrderDetail : Swift.Codable {
+  public var lineItems: [LotrModels.LineItem]?
+  public var transactionDetail: LotrModels.OrderTransactionDetail?
+  public var cratingInfo: LotrModels.CratingInfo?
+  public init(lineItems: [LotrModels.LineItem]?, transactionDetail: LotrModels.OrderTransactionDetail?, cratingInfo: LotrModels.CratingInfo?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct OrderDetailSummary : Swift.Codable {
+  public let numberOfLineItems: Swift.Int
+  public let totalLineItemQuantity: Swift.Int
+  public let firstLineItemName: Swift.String?
+  public let statusWithTransactionChecklist: Swift.String?
+  public let canTransactPartially: Swift.Bool
+  public let numberOfCrates: Swift.Int?
+  public let numberOfAssetCrates: Swift.Int
+  public let numberOfAssetSkus: Swift.Int
+  public let isTransactionFrozen: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.OrderDetailSummary {
+  public static func from(task: LotrModels.Task, visit: LotrModels.Visit) -> LotrModels.OrderDetailSummary
+  public static func getOrderDetail(task: LotrModels.Task, visit: LotrModels.Visit) -> LotrModels.OrderDetail?
+  public func getAssetCounts() -> (crates: Swift.Int, looseSkus: Swift.Int)
+}
+open class OrderTransactionDetail : Swift.Codable {
+  public var canTransactPartial: Swift.Bool?
+  public var checklist: LotrModels.Checklist?
+  public var frozen: Swift.Bool?
+  public init(canTransactPartial: Swift.Bool?, checklist: LotrModels.Checklist?, frozen: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PaginationInfo : Swift.Codable {
+  public var total: Swift.Int?
+  public var numberOfPages: Swift.Int?
+  public var currentPage: Swift.Int?
+  public init(total: Swift.Int?, numberOfPages: Swift.Int?, currentPage: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PasswordMetadata : Swift.Codable {
+  public var expiryDate: Foundation.Date?
+  public init(expiryDate: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Payment : Swift.Codable {
+  public var instrument: LotrModels.PaymentInstrument?
+  public var paymentId: LotrModels.PaymentId?
+  public var desiredAmount: LotrModels.Amount?
+  public var actualAmount: LotrModels.Amount?
+  public var amountEditable: Swift.Bool?
+  public var status: LotrModels.PaymentStatus?
+  public var createdOn: Foundation.Date?
+  public var updatedOn: Foundation.Date?
+  public var additionalInfo: [Swift.String : Swift.String]?
+  public var amountId: Swift.String?
+  public var dynamicLinkGeneration: Swift.Bool?
+  public init(instrument: LotrModels.PaymentInstrument?, paymentId: LotrModels.PaymentId?, desiredAmount: LotrModels.Amount?, actualAmount: LotrModels.Amount?, amountEditable: Swift.Bool?, status: LotrModels.PaymentStatus?, createdOn: Foundation.Date?, updatedOn: Foundation.Date?, additionalInfo: [Swift.String : Swift.String]?, amountId: Swift.String?, dynamicLinkGeneration: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct PaymentFlowSettings : Swift.Codable {
+  public let blockLineItemUpdateAfterPayment: Swift.Bool?
+  public let waitForAmountUpdateAfterLineItemUpdate: Swift.Bool?
+  public let waitTimeAfterLineItemUpdate: Swift.Int?
+  public let blockPaymentWithoutAmountUpdate: Swift.Bool?
+  public let alwaysAllowSkipPayment: Swift.Bool?
+  public let skipPaymentAfterXComputeRetries: Swift.Int?
+  public let skipPaymentAfterXFailures: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class PaymentId : Swift.Codable {
+  public var instrumentId: LotrModels.ProviderInstrumentId?
+  public var paymentId: Swift.String?
+  public init(instrumentId: LotrModels.ProviderInstrumentId?, paymentId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PaymentInstrument : Swift.Codable {
+  public var instrumentType: LotrModels.PaymentInstrumentType?
+  public var instrumentName: Swift.String?
+  public var providerInstrumentId: LotrModels.ProviderInstrumentId?
+  public init(instrumentType: LotrModels.PaymentInstrumentType?, instrumentName: Swift.String?, providerInstrumentId: LotrModels.ProviderInstrumentId?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum PaymentInstrumentType : Swift.String, Swift.Codable {
+  case cash
+  case coupon
+  case ecod
+  case online
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PaymentLinkRequest : Swift.Codable {
+  public init()
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PaymentLinkResponse : Swift.Codable {
+  public let url: Swift.String?
+  public let redirectUrl: Swift.String?
+  public let task: LotrModels.Task?
+  public init(url: Swift.String?, redirectUrl: Swift.String?, task: LotrModels.Task?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum PaymentStatus : Swift.String, Swift.Codable {
+  case pending
+  case success
+  case failed
+  case cancelled
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class Payments : Swift.Codable {
+  public var totalAmount: LotrModels.Amount?
+  public var pendingAmount: LotrModels.Amount?
+  public var paymentInstruments: [LotrModels.PaymentInstrument]?
+  public var payments: [LotrModels.Payment]?
+  public var fullAmountRequired: Swift.Bool?
+  public var enforceExactAmount: Swift.Bool?
+  public init(totalAmount: LotrModels.Amount?, pendingAmount: LotrModels.Amount?, paymentInstruments: [LotrModels.PaymentInstrument]?, payments: [LotrModels.Payment]?, fullAmountRequired: Swift.Bool?, enforceExactAmount: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PhoneVerificationConfig : Swift.Codable {
+  public var shouldVerifyPhoneNumber: Swift.Bool?
+  public var phoneNumberValidityPeriod: Swift.Int?
+  public init(shouldVerifyPhoneNumber: Swift.Bool?, phoneNumberValidityPeriod: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class ProviderInstrumentId : Swift.Codable {
+  public var providerId: Swift.String?
+  public var instrumentId: Swift.String?
+  public init(providerId: Swift.String?, instrumentId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct QueryParamsConfig : Swift.Codable {
+  public let key: Swift.String
+  public let value: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class Resource : Swift.Codable {
+  public enum Unit : Swift.String, Swift.Codable {
+    case count
+    case seconds
+    case meters
+    case kg
+    case unit
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var name: Swift.String?
+  public var unit: LotrModels.Resource.Unit?
+  public var value: Swift.Double?
+  public var exchangeType: LotrModels.ResourceExchangeType?
+  public init(name: Swift.String?, unit: LotrModels.Resource.Unit?, value: Swift.Double?, exchangeType: LotrModels.ResourceExchangeType?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct ResourceCurrentValue : Swift.Codable {
+  public var current: Swift.Double?
+  public var total: Swift.Double?
+  public var resource: Swift.String?
+  public var available: Swift.Double?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class ResourceDefinition : Swift.Codable {
+  public enum Unit : Swift.String, Swift.Codable {
+    case count
+    case seconds
+    case meters
+    case kg
+    case unit
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var name: Swift.String?
+  public var unit: LotrModels.ResourceDefinition.Unit?
+  public init(name: Swift.String?, unit: LotrModels.ResourceDefinition.Unit?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum ResourceExchangeType : Swift.String, Swift.Codable {
+  case give
+  case collect
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ResourceUtilization : Swift.Codable {
+  public var used: Swift.Double?
+  public var total: Swift.Double?
+  public var available: Swift.Double?
+  public var required: Swift.Double?
+  public var current: Swift.Double?
+  public var definition: LotrModels.ResourceDefinition?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class Resources : Swift.Codable {
+  public var resources: [LotrModels.Resource]?
+  public init(resources: [LotrModels.Resource]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct RiderId : Swift.Codable {
+  public let clientId: Swift.String?
+  public let riderId: Swift.String?
+  public let version: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RiderJwtGenerationRequest : Swift.Codable {
+  public let phoneNumber: Swift.String?
+  public let secret: Swift.String?
+  public init(phoneNumber: Swift.String?, secret: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RiderJwtGenerationResponse : Swift.Codable {
+  public let accessToken: Swift.String?
+  public let refreshToken: Swift.String?
+  public let riderId: LotrModels.RiderId?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class RiderManagerChatContactSearchRequestModel : Swift.Codable {
+  public var userIds: [Swift.String]?
+  public var query: Swift.String?
+  public var page: Swift.Int?
+  public var size: Swift.Int?
+  public init(userIds: [Swift.String], query: Swift.String, page: Swift.Int, size: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class RiderManagerChatContactSearchResponse : Swift.Codable {
+  public var contacts: [LotrModels.ContactsResponse]?
+  public init(contacts: [LotrModels.ContactsResponse]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class RiderPayoutEvent : Swift.Codable {
+  public var fromDate: Swift.String?
+  public var toDate: Swift.String?
+  public var amount: Swift.Double?
+  public var currency: Swift.String?
+  public init(fromDate: Swift.String?, toDate: Swift.String?, amount: Swift.Double?, currency: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class RiderPayoutSettingsConfig : Swift.Codable {
+  public var payoutUploadPeriod: LotrModels.PayoutUploadPeriodEnum?
+  public var enabled: Swift.Bool?
+  public init(payoutUploadPeriod: LotrModels.PayoutUploadPeriodEnum?, enabled: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum PayoutUploadPeriodEnum : Swift.String, Swift.Codable {
+  case daily
+  case weekly
+  case monthly
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class RiderStats : Swift.Codable {
+  public var date: Swift.String
+  public var taskCountMetrics: LotrModels.TaskCountMetrics
+  public var averageDrift: Swift.Double?
+  public var travelledDistance: Swift.Double
+  public var sequenceEdits: Swift.Int
+  public var additionalDistance: Swift.Double
+  public var tourCount: Swift.Int
+  public init(date: Swift.String, taskCountMetrics: LotrModels.TaskCountMetrics, averageDrift: Swift.Double?, travelledDistance: Swift.Double, sequenceEdits: Swift.Int, additionalDistance: Swift.Double, tourCount: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct Roster : Swift.Codable {
+  public let shift: LotrModels.RosterShift?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RosterDetail : Swift.Codable {
+  public let rosters: [LotrModels.Roster]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RosterShift : Swift.Codable {
+  public let start: LotrModels.RosterShiftInstant?
+  public let end: LotrModels.RosterShiftInstant?
+  public let tagId: LotrModels.TagId?
+  public let adhocBreakDefinitions: [LotrModels.AdhocBreakDefinition]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RosterShiftInstant : Swift.Codable {
+  public let date: Swift.String?
+  public let time: Swift.String?
+  public let dateTime: Foundation.Date?
+  public let location: LotrModels.AddressLatLng?
+  public let homebaseId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum RuleTypeEnum : Swift.String, Swift.Codable {
+  case hours
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ScanningConfig : Swift.Codable {
+  public let enableSkuScanning: Swift.Bool?
+  public let allowSkuQuantityEdit: Swift.Bool?
+  public let orderScanningVisitIds: [Swift.String]?
+  public init(enableSkuScanning: Swift.Bool?, allowSkuQuantityEdit: Swift.Bool?, orderScanningVisitIds: [Swift.String]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class SdkInitRequest : Swift.Codable {
+  public var deviceInfo: LotrModels.DeviceInfo?
+  public var dryRun: Swift.Bool?
+  public init(deviceInfo: LotrModels.DeviceInfo?, dryRun: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class SdkInitializationResponse : Swift.Codable {
+  public var config: LotrModels.ClientAppConfig?
+  public var user: LotrModels.User?
+  public init(config: LotrModels.ClientAppConfig?, user: LotrModels.User?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class SecurityConfig : Swift.Codable {
+  public var allowCaptureScreenshots: Swift.Bool?
+  public init(allowCaptureScreenshots: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct SendLoginOtpRequest : Swift.Codable {
+  public let phoneNumber: Swift.String?
+  public init(phoneNumber: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SendLoginOtpResponse : Swift.Codable {
+  public let status: LotrModels.LoginOtpResponseStatus?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class SensorPollingParam : Swift.Codable {
+  public var holdWakeLock: Swift.Bool?
+  public var quickGpsPollingInterval: Swift.Int?
+  public var slowGpsPollingInterval: Swift.Int?
+  public var gpsMaxWaitTime: Swift.Int?
+  public var activityDetectionInterval: Swift.Int?
+  public init(holdWakeLock: Swift.Bool?, quickGpsPollingInterval: Swift.Int?, slowGpsPollingInterval: Swift.Int?, gpsMaxWaitTime: Swift.Int?, activityDetectionInterval: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct ShiftDetailsResponse : Swift.Codable {
+  public let workingSessionDetails: [LotrModels.WorkingSessionDetail]?
+  public let workingSessionSummary: LotrModels.WorkingSessionShiftSummary?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class SkyhookTilingSettings : Swift.Codable {
+  public var edgeLength: Swift.Int?
+  public var numberOfRegions: Swift.Int?
+  public var percentFreeSpaceLimit: Swift.Int?
+  public init(edgeLength: Swift.Int?, numberOfRegions: Swift.Int?, percentFreeSpaceLimit: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class SortingInfo : Swift.Codable {
+  public enum Order : Swift.String, Swift.Codable {
+    case asc
+    case desc
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum OrderSequence : Swift.String, Swift.Codable {
+    case lexicographic
+    case natural
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var name: Swift.String?
+  public var order: LotrModels.SortingInfo.Order?
+  public var orderSequence: LotrModels.SortingInfo.OrderSequence?
+  public init(name: Swift.String?, order: LotrModels.SortingInfo.Order?, orderSequence: LotrModels.SortingInfo.OrderSequence?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class StateDumpEvent : Swift.Codable {
+  public var unused: Swift.String?
+  public init(unused: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class StructuredAddress : Swift.Codable {
+  public var id: Swift.String?
+  public var placeName: Swift.String?
+  public var localityName: Swift.String?
+  public var formattedAddress: Swift.String?
+  public var pincode: Swift.String?
+  public var city: Swift.String?
+  public var state: Swift.String?
+  public var countryCode: Swift.String?
+  public init(id: Swift.String?, placeName: Swift.String?, localityName: Swift.String?, formattedAddress: Swift.String?, pincode: Swift.String?, city: Swift.String?, state: Swift.String?, countryCode: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class SubStatus : Swift.Codable {
+  public enum SubStatus : Swift.String, Swift.Codable {
+    case softCancelled
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var subStatus: LotrModels.SubStatus.SubStatus?
+  public init(subStatus: LotrModels.SubStatus.SubStatus?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct TagId : Swift.Codable {
+  public let clientId: Swift.String?
+  public let tagId: Swift.String?
+  public let version: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class Task : Swift.Codable {
+  public var clientId: Swift.String?
+  public var taskId: Swift.String?
+  public var status: LotrModels.TaskStatus?
+  public var sourceOrderId: Swift.String?
+  public var scanId: Swift.String?
+  public var orderDetail: LotrModels.OrderDetail?
+  public var assignedUser: LotrModels.AssignedUser?
+  public var creationTime: Foundation.Date?
+  public var completionTime: Foundation.Date?
+  public var checklists: [LotrModels.Checklist]?
+  public var statusUpdates: [LotrModels.TaskStatus]?
+  public var customFields: [Swift.String : Swift.String]?
+  public var taskGraph: LotrModels.TaskGraph?
+  public var carrierTeams: [LotrModels.TeamId]?
+  public var taskAppConfig: LotrModels.TaskAppConfig?
+  public var returnTask: Swift.Bool?
+  public var subStatus: Swift.String?
+  public var tourId: LotrModels.TourId?
+  public init(clientId: Swift.String?, taskId: Swift.String?, status: LotrModels.TaskStatus?, sourceOrderId: Swift.String?, scanId: Swift.String?, orderDetail: LotrModels.OrderDetail?, assignedUser: LotrModels.AssignedUser?, creationTime: Foundation.Date?, completionTime: Foundation.Date?, checklists: [LotrModels.Checklist]?, statusUpdates: [LotrModels.TaskStatus]?, customFields: [Swift.String : Swift.String]?, taskGraph: LotrModels.TaskGraph?, carrierTeams: [LotrModels.TeamId]?, taskAppConfig: LotrModels.TaskAppConfig?, returnTask: Swift.Bool?, subStatus: Swift.String?, tourId: LotrModels.TourId?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public typealias LotrTask = LotrModels.Task
+open class TaskAppConfig : Swift.Codable {
+  public var autoAccept: Swift.Bool?
+  public var autoStartOnAccept: Swift.Bool?
+  public var hideCancel: Swift.Bool?
+  public var hideReject: Swift.Bool?
+  public var hideRejectAfterAccept: Swift.Bool?
+  public var nearbyTaskDistanceThreshold: Swift.Int?
+  public init(autoAccept: Swift.Bool?, autoStartOnAccept: Swift.Bool?, hideCancel: Swift.Bool?, hideReject: Swift.Bool?, hideRejectAfterAccept: Swift.Bool?, nearbyTaskDistanceThreshold: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TaskCloneRequest : Swift.Codable {
+  public var visitOverrides: [LotrModels.VisitOverride]?
+  public var lineItems: [LotrModels.LineItem]?
+  public var riderId: Swift.String?
+  public var assignToMe: Swift.Bool?
+  public init(visitOverrides: [LotrModels.VisitOverride]?, lineItems: [LotrModels.LineItem]?, riderId: Swift.String?, assignToMe: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TaskColourCriteria : Swift.Codable, Swift.Equatable {
+  public static func == (lhs: LotrModels.TaskColourCriteria, rhs: LotrModels.TaskColourCriteria) -> Swift.Bool
+  public var field: LotrModels.FieldEnum?
+  public var value: Swift.String?
+  public init(field: LotrModels.FieldEnum?, value: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum FieldEnum : Swift.String, Swift.Codable {
+  case start
+  case end
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class TaskColourSetting : Swift.Codable, Swift.Equatable {
+  public static func == (lhs: LotrModels.TaskColourSetting, rhs: LotrModels.TaskColourSetting) -> Swift.Bool
+  public var taskColour: Swift.String?
+  public var taskBorderColour: Swift.String?
+  public var displayText: Swift.String?
+  public var description: Swift.String?
+  public var criterias: [LotrModels.TaskColourCriteria]?
+  public init(taskColour: Swift.String?, taskBorderColour: Swift.String?, displayText: Swift.String?, description: Swift.String?, criterias: [LotrModels.TaskColourCriteria]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TaskCountMetrics : Swift.Codable {
+  public var completed: Swift.Int
+  public var cancelled: Swift.Int
+  public var total: Swift.Int
+  public var onTime: Swift.Int
+  public var delayed: Swift.Int
+  public init(completed: Swift.Int, cancelled: Swift.Int, total: Swift.Int, onTime: Swift.Int, delayed: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TaskGraph : Swift.Codable {
+  public var clientId: Swift.String?
+  public var taskId: Swift.String?
+  public var visits: [LotrModels.Visit]?
+  public init(clientId: Swift.String?, taskId: Swift.String?, visits: [LotrModels.Visit]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct TaskScanIdLookup {
+  public let taskId: Swift.String
+  public let orderScanId: Swift.String
+  public let pipeSeparatedSkuScanIds: Swift.String
+  public let sourceOrderId: Swift.String?
+  public let scanId: Swift.String?
+}
+extension LotrModels.TaskScanIdLookup {
+  public static func from(task: LotrModels.Task) -> LotrModels.TaskScanIdLookup
+}
+open class TaskStatus : Swift.Codable {
+  public enum Status : Swift.String, Swift.Codable {
+    case received
+    case waiting
+    case accepted
+    case started
+    case completed
+    case cancelled
+    case error
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var status: LotrModels.TaskStatus.Status?
+  public var triggerTime: Foundation.Date?
+  public var checklistValues: [Swift.String : Swift.String]?
+  public var receiveTime: Foundation.Date?
+  public var location: LotrModels.MinimalLocation?
+  public var actor: LotrModels.Actor?
+  public var assignedUser: LotrModels.AssignedUser?
+  public init(status: LotrModels.TaskStatus.Status?, triggerTime: Foundation.Date?, checklistValues: [Swift.String : Swift.String]?, receiveTime: Foundation.Date?, location: LotrModels.MinimalLocation?, actor: LotrModels.Actor?, assignedUser: LotrModels.AssignedUser?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TaskStatusRequest : Swift.Codable {
+  public enum Status : Swift.String, Swift.Codable {
+    case received
+    case waiting
+    case accepted
+    case started
+    case completed
+    case cancelled
+    case error
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var status: LotrModels.TaskStatusRequest.Status?
+  public var triggerTime: Foundation.Date?
+  public var checklistValues: [Swift.String : Swift.String]?
+  public init(status: LotrModels.TaskStatusRequest.Status?, triggerTime: Foundation.Date?, checklistValues: [Swift.String : Swift.String]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TaskTemplate : Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public var useCase: LotrModels.UseCaseType?
+  public var taskType: LotrModels.TaskType?
+  public var taskIdPattern: Swift.String?
+  public var teamId: Swift.String?
+  public var homebaseVisit: LotrModels.HomebaseVisitDetails?
+  public var customerVisit: LotrModels.VisitDetails?
+  public var dropVisit: LotrModels.VisitDetails?
+  public var volume: LotrModels.MinimalVolume?
+  public var resources: [LotrModels.MinimalResource]?
+  public var skills: [Swift.String]?
+  public var exchangeType: LotrModels.ExchangeTypeEnum?
+  public var allowSelfAssignment: Swift.Bool?
+  public init(id: Swift.String?, name: Swift.String?, useCase: LotrModels.UseCaseType?, taskType: LotrModels.TaskType?, taskIdPattern: Swift.String?, teamId: Swift.String?, homebaseVisit: LotrModels.HomebaseVisitDetails?, customerVisit: LotrModels.VisitDetails?, dropVisit: LotrModels.VisitDetails?, volume: LotrModels.MinimalVolume?, resources: [LotrModels.MinimalResource]?, skills: [Swift.String]?, exchangeType: LotrModels.ExchangeTypeEnum?, allowSelfAssignment: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum TaskType : Swift.String, Swift.Codable {
+  case pickup
+  case drop
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class TaskUpdateEvent : Swift.Codable {
+  public var task: LotrModels.Task?
+  public init(task: LotrModels.Task?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TeamId : Swift.Codable {
+  public var clientId: Swift.String?
+  public var teamId: Swift.String?
+  public init(clientId: Swift.String?, teamId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct TimeCardBreakDefinition : Swift.Codable {
+  public let breakType: Swift.String?
+  public let displayName: Swift.String?
+  public let breakRules: [LotrModels.TimeCardBreakRule]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TimeCardBreakRule : Swift.Codable {
+  public let ruleType: LotrModels.RuleTypeEnum?
+  public let values: [Swift.Int]?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct TimeCardBreakSettings : Swift.Codable {
+  public let breakDefinitions: [LotrModels.TimeCardBreakDefinition]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TimeCardSettings : Swift.Codable {
+  public let enabled: Swift.Bool?
+  public let breaksSettings: LotrModels.TimeCardBreakSettings?
+  public let coolDownPeriodInMinutes: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class TimeDistancePair : Swift.Codable {
+  public var distance: Swift.Int?
+  public var duration: Swift.Int?
+  public init(distance: Swift.Int?, duration: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TimeSlot : Swift.Codable {
+  public var start: Foundation.Date?
+  public var end: Foundation.Date?
+  public init(start: Foundation.Date?, end: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+extension LotrModels.TimeSlot {
+  public static func containing(slot1: LotrModels.TimeSlot?, slot2: LotrModels.TimeSlot?) -> LotrModels.TimeSlot?
+}
+open class TimeWindow : Swift.Codable {
+  public enum Strictness : Swift.String, Swift.Codable {
+    case strict
+    case normal
+    case _optional
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var slot: LotrModels.TimeSlot?
+  public var strictness: LotrModels.TimeWindow.Strictness?
+  public var canTransactBeforeSlot: Swift.Bool?
+  public var canTransactAfterSlot: Swift.Bool?
+  public var treatEtaAsSla: Swift.Bool?
+  public var transactionDuration: Swift.Int?
+  public var readinessDuration: Swift.Int?
+  public init(slot: LotrModels.TimeSlot?, strictness: LotrModels.TimeWindow.Strictness?, canTransactBeforeSlot: Swift.Bool?, canTransactAfterSlot: Swift.Bool?, treatEtaAsSla: Swift.Bool?, transactionDuration: Swift.Int?, readinessDuration: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Tour : Swift.Codable {
+  public var visits: [LotrModels.TourVisit]?
+  public var summary: LotrModels.TourSummary?
+  public var userVisitsData: [LotrModels.UserVisit]?
+  public init(visits: [LotrModels.TourVisit]?, summary: LotrModels.TourSummary?, userVisitsData: [LotrModels.UserVisit]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct TourCardAndDetailsSettings : Swift.Codable {
+  public let tourCardSectionOneProperties: [LotrModels.TourCardSectionOneProperty]?
+  public let tourCardSectionOneResources: [Swift.String]?
+  public let tourCardSectionTwoProperties: [LotrModels.TourCardSectionTwoProperty]?
+  public let tourDetailsSectionOrder: [LotrModels.TourDetailsSection]?
+  public let tourDetailsProperties: [LotrModels.TourDetailsProperty]?
+  public let tourDetailsResources: [Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum TourCardSectionOneProperty : Swift.String, Swift.Codable {
+  case totalWeight
+  case totalVolume
+  case resources
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum TourCardSectionTwoProperty : Swift.String, Swift.Codable {
+  case vehicleDetails
+  case breakDetails
+  case customFields
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum TourDetailsProperty : Swift.String, Swift.Codable {
+  case totalWeight
+  case totalVolume
+  case locationCount
+  case skuCount
+  case amountToCollect
+  case resources
+  case vehicleDetails
+  case breakDetails
+  case customFields
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum TourDetailsSection : Swift.String, Swift.Codable {
+  case tourMetrics
+  case progressTracker
+  case otherTourDetails
+  case returnSummary
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct TourDisplaySettings : Swift.Codable {
+  public let tourCardAndDetailsSettings: LotrModels.TourCardAndDetailsSettings?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+open class TourId : Swift.Codable {
+  public var clientId: Swift.String?
+  public var tourId: Swift.String?
+  public init(clientId: Swift.String?, tourId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum TourStatus : Swift.String, Swift.Codable {
+  case queued
+  case started
+  case completed
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class TourSummary : Swift.Codable {
+  public var totalTravelDistance: Swift.Int?
+  public var totalSlaBreachedTasks: Swift.Int?
+  public var totalTravelDuration: Swift.Int?
+  public var sequenceEditsCount: Swift.Int?
+  public var taskCount: Swift.Int?
+  public var resources: [Swift.String : LotrModels.ResourceUtilization?]?
+  public var volume: LotrModels.ResourceUtilization?
+  public var executedSlot: LotrModels.TimeSlot?
+  public init(totalTravelDistance: Swift.Int?, totalSlaBreachedTasks: Swift.Int?, totalTravelDuration: Swift.Int?, sequenceEditsCount: Swift.Int?, taskCount: Swift.Int?, resources: [Swift.String : LotrModels.ResourceUtilization?]?, volume: LotrModels.ResourceUtilization?, executedSlot: LotrModels.TimeSlot?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TourUpdateEvent : Swift.Codable {
+  public var tourDate: Swift.String?
+  public var timestamp: Foundation.Date?
+  public init(tourDate: Swift.String?, timestamp: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TourVisit : Swift.Codable {
+  public enum VisitSource : Swift.String, Swift.Codable {
+    case task
+    case user
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var id: Swift.String?
+  public var eta: [Swift.String : LotrModels.MinimalEtaWrapper]?
+  public var currentEta: [Swift.String : LotrModels.MinimalEtaWrapper]?
+  public var visitSource: LotrModels.TourVisit.VisitSource?
+  public var sourceId: Swift.String?
+  public var clientId: Swift.String?
+  public var visitTravel: LotrModels.VisitTravel?
+  public init(id: Swift.String?, eta: [Swift.String : LotrModels.MinimalEtaWrapper]?, currentEta: [Swift.String : LotrModels.MinimalEtaWrapper]?, visitSource: LotrModels.TourVisit.VisitSource?, sourceId: Swift.String?, clientId: Swift.String?, visitTravel: LotrModels.VisitTravel?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class TourVisitId : Swift.Codable {
+  public var id: Swift.String?
+  public var sourceId: Swift.String?
+  public var visitSource: LotrModels.TourVisitSource?
+  public init(id: Swift.String?, sourceId: Swift.String?, visitSource: LotrModels.TourVisitSource?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum TourVisitSource : Swift.String, Swift.Codable {
+  case task
+  case tour
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class TransactionStatus : Swift.Codable {
+  public var transactedQuantity: Swift.Int?
+  public var checklistValues: [Swift.String : Swift.String]?
+  public var triggerTime: Foundation.Date?
+  public var receiveTime: Foundation.Date?
+  public var transactedWeight: Swift.Double?
+  public var actualTransactedVolume: Swift.Double?
+  public var actualTransactedWeight: Swift.Double?
+  public init(transactedQuantity: Swift.Int?, checklistValues: [Swift.String : Swift.String]?, triggerTime: Foundation.Date?, receiveTime: Foundation.Date?, transactedWeight: Swift.Double?, actualTransactedVolume: Swift.Double?, actualTransactedWeight: Swift.Double?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum TriggerTypeEnum : Swift.String, Swift.Codable {
+  case status
+  case slabreach
+  case noPaymentCollection
+  case partialPaymentCollection
+  case fullPaymentCollection
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class UpdateActiveAppVersionRequest : Swift.Codable {
+  public var earliestVersion: Swift.Int?
+  public init(earliestVersion: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateDelayReasonChecklistRequest : Swift.Codable {
+  public var triggerTime: Foundation.Date
+  public var checklistValues: [Swift.String : Swift.String]?
+  public var triggerType: Swift.String?
+  public init(triggerTime: Foundation.Date, checklistValues: [Swift.String : Swift.String]?, triggerType: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateLineItemTransactionRequest : Swift.Codable {
+  public var lineItemsTransactionStatus: [LotrModels.LineItemTransactionStatus]?
+  public var amountId: Swift.String?
+  public init(amountId: Swift.String?, lineItemsTransactionStatus: [LotrModels.LineItemTransactionStatus]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateLineItemRequest : Swift.Codable {
+  public init(add: [LotrModels.MinimalLineItem]?, transactionDuration: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdatePasswordRequest : Swift.Codable {
+  public var existingPassword: Swift.String?
+  public var newPassword: Swift.String?
+  public init(existingPassword: Swift.String?, newPassword: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdatePaymentRequest : Swift.Codable {
+  public var payments: [LotrModels.Payment]?
+  public init(payments: [LotrModels.Payment]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateTimeSlotRequest : Swift.Codable {
+  public var slot: LotrModels.TimeSlot?
+  public var dryRun: Swift.Bool?
+  public init(slot: LotrModels.TimeSlot?, dryRun: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateTourSequenceRequest : Swift.Codable {
+  public var visits: [LotrModels.TourVisitId]?
+  public var dryRun: Swift.Bool?
+  public init(visits: [LotrModels.TourVisitId]?, dryRun: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateTransactionEndRequest : Swift.Codable {
+  public var triggerTime: Foundation.Date
+  public init(triggerTime: Foundation.Date)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateUserPhoneNumberRequest : Swift.Codable {
+  public var phoneNumber: Swift.String?
+  public var otp: Swift.String?
+  public init(phoneNumber: Swift.String?, otp: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UpdateUserProfileRequest : Swift.Codable {
+  public var name: Swift.String?
+  public init(name: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum UseCaseType : Swift.String, Swift.Codable {
+  case spmd
+  case mpmd
+  case service
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class User : Swift.Codable {
+  public var clientId: Swift.String?
+  public var userId: Swift.String?
+  public var name: Swift.String?
+  public var email: Swift.String?
+  public var phone: Swift.String?
+  public var photoUrl: Swift.String?
+  public var status: LotrModels.UserStatus?
+  public var isPhoneNumberVerified: Swift.Bool?
+  public var phoneNumberVerifiedAt: Foundation.Date?
+  public init(clientId: Swift.String?, userId: Swift.String?, name: Swift.String?, email: Swift.String?, phone: Swift.String?, photoUrl: Swift.String?, status: LotrModels.UserStatus?, isPhoneNumberVerified: Swift.Bool?, phoneNumberVerifiedAt: Foundation.Date?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public typealias LotrUser = LotrModels.User
+open class UserAuthToken : Swift.Codable {
+  public var clientId: Swift.String?
+  public var userId: Swift.String?
+  public var token: Swift.String?
+  public init(clientId: Swift.String?, userId: Swift.String?, token: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UserId : Swift.Codable {
+  public var clientId: Swift.String?
+  public var userId: Swift.String?
+  public init(clientId: Swift.String?, userId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UserStatus : Swift.Codable {
+  public enum Status : Swift.String, Swift.Codable {
+    case available
+    case busyAuto
+    case busyManual
+    case busyOnBreak
+    case busyClockedOut
+    case disabled
+    case busyLoggedOut
+    case error
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var status: LotrModels.UserStatus.Status?
+  public init(status: LotrModels.UserStatus.Status?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UserToursResponse : Swift.Codable {
+  public var clientId: Swift.String?
+  public var userId: Swift.String?
+  public var tours: [LotrModels.ExtendedTour]?
+  public var tasks: [LotrModels.Task]?
+  public init(clientId: Swift.String?, userId: Swift.String?, tours: [LotrModels.ExtendedTour]?, tasks: [LotrModels.Task]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UserUpdateEvent : Swift.Codable {
+  public var user: LotrModels.User?
+  public init(user: LotrModels.User?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class UserVisit : Swift.Codable {
+  public var visit: LotrModels.Visit?
+  public var userId: LotrModels.UserId?
+  public var skip: Swift.Bool?
+  public init(visit: LotrModels.Visit?, userId: LotrModels.UserId?, skip: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum UserVisitType : Swift.String, Swift.Codable {
+  case startOfDay
+  case endOfDay
+  case shiftStart
+  case shiftEnd
+  case tourEnd
+  case _break
+  case other
+  case _none
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class VersionedEntityId : Swift.Codable {
+  public var id: Swift.String?
+  public var version: Swift.Int?
+  public init(id: Swift.String?, version: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Visit : Swift.Codable {
+  public var id: Swift.String?
+  public var volumes: LotrModels.Volumes?
+  public var resources: LotrModels.Resources?
+  public var visitStatus: LotrModels.VisitStatus?
+  public var transactionEndTime: Foundation.Date?
+  public var trackLink: Swift.String?
+  public var chosenLocation: LotrModels.VisitLocation?
+  public var eta: [Swift.String : LotrModels.EtaWrapper]?
+  public var checklists: [LotrModels.Checklist]?
+  public var eventChecklists: [LotrModels.Checklist]?
+  public var amountTransaction: LotrModels.AmountTransaction?
+  public var payments: LotrModels.Payments?
+  public var visitMetadata: LotrModels.VisitMetadata?
+  public var userVisitType: LotrModels.UserVisitType?
+  public var breakType: LotrModels.BreakType?
+  public var summary: LotrModels.VisitSummary?
+  public var orderDetail: LotrModels.OrderDetail?
+  public var appFields: LotrModels.AppFields?
+  public var visitName: Swift.String?
+  public var visitAppConfig: LotrModels.VisitAppConfig?
+  public var locationDetails: LotrModels.LocationDetails?
+  public var amountRecomputeStatus: LotrModels.AmountRecomputeStatusEnum?
+  public init(id: Swift.String?, volumes: LotrModels.Volumes?, resources: LotrModels.Resources?, visitStatus: LotrModels.VisitStatus?, transactionEndTime: Foundation.Date?, trackLink: Swift.String?, chosenLocation: LotrModels.VisitLocation?, eta: [Swift.String : LotrModels.EtaWrapper]?, checklists: [LotrModels.Checklist]?, amountTransaction: LotrModels.AmountTransaction?, payments: LotrModels.Payments?, visitMetadata: LotrModels.VisitMetadata?, userVisitType: LotrModels.UserVisitType?, breakType: LotrModels.BreakType?, summary: LotrModels.VisitSummary?, orderDetail: LotrModels.OrderDetail?, appFields: LotrModels.AppFields?, visitName: Swift.String?, visitAppConfig: LotrModels.VisitAppConfig?, locationDetails: LotrModels.LocationDetails?, eventChecklists: [LotrModels.Checklist]?, amountRecomputeStatus: LotrModels.AmountRecomputeStatusEnum?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitAppConfig : Swift.Codable {
+  public var skipStatuses: [Swift.String]?
+  public var allowVisitReschedule: Swift.Bool?
+  public var blockCompletion: Swift.Bool?
+  public var allowZeroItemVisitCompletion: Swift.Bool?
+  public var enforceSingleTransaction: Swift.Bool?
+  public init(skipStatuses: [Swift.String]?, allowVisitReschedule: Swift.Bool?, blockCompletion: Swift.Bool?, allowZeroItemVisitCompletion: Swift.Bool?, enforceSingleTransaction: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitDetails : Swift.Codable {
+  public var transactionDuration: Swift.Int?
+  public var sla: Swift.Int?
+  public init(transactionDuration: Swift.Int?, sla: Swift.Int?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum VisitExchangeType : Swift.String, Swift.Codable {
+  case pickup
+  case drop
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension LotrModels.VisitExchangeType {
+  public static func from(visit: LotrModels.Visit) -> LotrModels.VisitExchangeType
+}
+open class VisitInfo : Swift.Codable {
+  public var contact: LotrModels.MinimalContactPoint?
+  public var latLng: LotrModels.MinimalLatLng?
+  public var address: LotrModels.StructuredAddress?
+  public var transactionDuration: Swift.Int?
+  public var slot: LotrModels.TimeSlot?
+  public init(contact: LotrModels.MinimalContactPoint?, latLng: LotrModels.MinimalLatLng?, address: LotrModels.StructuredAddress?, transactionDuration: Swift.Int?, slot: LotrModels.TimeSlot?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitLocation : Swift.Codable {
+  public var id: Swift.String?
+  public var geometry: LotrModels.Geometry?
+  public var timeWindow: LotrModels.TimeWindow?
+  public var locationAddress: LotrModels.StructuredAddress?
+  public var contact: LotrModels.ContactPoint?
+  public var geocodingMetadata: LotrModels.GeocodingMetadata?
+  public init(id: Swift.String?, geometry: LotrModels.Geometry?, timeWindow: LotrModels.TimeWindow?, locationAddress: LotrModels.StructuredAddress?, contact: LotrModels.ContactPoint?, geocodingMetadata: LotrModels.GeocodingMetadata?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitMetadata : Swift.Codable {
+  public enum ModelType : Swift.String, Swift.Codable {
+    case homebase
+    case customer
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var type: LotrModels.VisitMetadata.ModelType?
+  public init(type: LotrModels.VisitMetadata.ModelType?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum VisitMetadataType : Swift.String, Swift.Codable {
+  case unknown
+  case homebase
+  case customer
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension LotrModels.VisitMetadataType {
+  public static func from(visit: LotrModels.Visit) -> LotrModels.VisitMetadataType
+}
+open class VisitOverride : Swift.Codable {
+  public var visitId: Swift.String?
+  public var contact: LotrModels.ContactPoint?
+  public var amount: LotrModels.AmountTransaction?
+  public init(visitId: Swift.String?, contact: LotrModels.ContactPoint?, amount: LotrModels.AmountTransaction?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitStatus : Swift.Codable {
+  public enum Status : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case received
+    case waiting
+    case accepted
+    case started
+    case arrived
+    case transacting
+    case completed
+    case cancelled
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [LotrModels.VisitStatus.Status]
+    public typealias RawValue = Swift.String
+    nonisolated public static var allCases: [LotrModels.VisitStatus.Status] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var status: LotrModels.VisitStatus.Status?
+  public var triggerTime: Foundation.Date?
+  public var checklistValues: [Swift.String : Swift.String]?
+  public var receiveTime: Foundation.Date?
+  public var location: LotrModels.MinimalLocation?
+  public var actor: LotrModels.Actor?
+  public var assignedUser: LotrModels.AssignedUser?
+  public init(status: LotrModels.VisitStatus.Status?, triggerTime: Foundation.Date?, checklistValues: [Swift.String : Swift.String]?, receiveTime: Foundation.Date?, location: LotrModels.MinimalLocation?, actor: LotrModels.Actor?, assignedUser: LotrModels.AssignedUser?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitStatusRequest : Swift.Codable {
+  public enum Status : Swift.String, Swift.Codable {
+    case received
+    case waiting
+    case accepted
+    case started
+    case arrived
+    case transacting
+    case completed
+    case cancelled
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var status: LotrModels.VisitStatusRequest.Status?
+  public var triggerTime: Foundation.Date?
+  public var checklistValues: [Swift.String : Swift.String]?
+  public init(status: LotrModels.VisitStatusRequest.Status?, triggerTime: Foundation.Date?, checklistValues: [Swift.String : Swift.String]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitSummary : Swift.Codable {
+  public var tardiness: Swift.Int?
+  public var actualTravelPair: LotrModels.TimeDistancePair?
+  public init(tardiness: Swift.Int?, actualTravelPair: LotrModels.TimeDistancePair?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VisitTravel : Swift.Codable {
+  public var timeDistancePair: LotrModels.TimeDistancePair?
+  public var polyline: Swift.String?
+  public init(timeDistancePair: LotrModels.TimeDistancePair?, polyline: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class Volume : Swift.Codable {
+  public enum Unit : Swift.String, Swift.Codable {
+    case itemCount
+    case taskCount
+    case metersCubic
+    case lbhMeters
+    case litres
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var unit: LotrModels.Volume.Unit?
+  public var value: Swift.String?
+  public var exchangeType: LotrModels.ResourceExchangeType?
+  public init(unit: LotrModels.Volume.Unit?, value: Swift.String?, exchangeType: LotrModels.ResourceExchangeType?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class VolumeDefinition : Swift.Codable {
+  public enum Unit : Swift.String, Swift.Codable {
+    case itemCount
+    case taskCount
+    case metersCubic
+    case lbhMeters
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var unit: LotrModels.VolumeDefinition.Unit?
+  public init(unit: LotrModels.VolumeDefinition.Unit?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum VolumeUnit : Swift.String, Swift.Codable {
+  case itemCount
+  case taskCount
+  case metersCubic
+  case lbhMeters
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class Volumes : Swift.Codable {
+  public var volumes: [LotrModels.Volume]?
+  public init(volumes: [LotrModels.Volume]?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct Weight : Swift.Codable {
+  public let value: Swift.String?
+  public let unit: LotrModels.WeightUnit?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum WeightUnit : Swift.String, Swift.Codable {
+  case mg
+  case g
+  case kg
+  case t
+  case oz
+  case lb
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum WorkflowType : Swift.String, Swift.Codable {
+  case onDemand
+  case scheduled
+  case scheduledExecution
+  case scheduledExecutionOnDemand
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct WorkingSession : Swift.Codable {
+  public let date: Swift.String?
+  public let clockIn: LotrModels.WorkingSessionEvent?
+  public let clockOut: LotrModels.WorkingSessionEvent?
+  public let breaks: [LotrModels.WorkingSessionBreak]?
+  public let shiftTagId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.WorkingSession {
+  public static func emptySession(withDate date: Swift.String) -> LotrModels.WorkingSession
+}
+public struct WorkingSessionBreak : Swift.Codable {
+  public let startTime: Foundation.Date?
+  public let endTime: Foundation.Date?
+  public let breakType: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WorkingSessionBreakRequest : Swift.Codable {
+  public let date: Swift.String?
+  public let triggerTime: Foundation.Date?
+  public let breakType: Swift.String?
+  public let shiftTagId: Swift.String?
+  public init(date: Swift.String?, triggerTime: Foundation.Date?, breakType: Swift.String?, shiftTagId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WorkingSessionDetail : Swift.Codable {
+  public let workingSessions: [LotrModels.WorkingSession]?
+  public let roster: LotrModels.MinimalRoster?
+  public let shiftWiseWorkingSessionSummary: LotrModels.WorkingSessionShiftSummary
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WorkingSessionEvent : Swift.Codable {
+  public let triggerTime: Foundation.Date?
+  public let metadata: LotrModels.WorkingSessionEventMetadata?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WorkingSessionEventMetadata : Swift.Codable {
+  public let macId: Swift.String?
+  public let timezone: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WorkingSessionEventRequest : Swift.Codable {
+  public let triggerTime: Foundation.Date?
+  public let metadata: LotrModels.WorkingSessionEventMetadata?
+  public let date: Swift.String?
+  public let shiftTagId: Swift.String?
+  public init(triggerTime: Foundation.Date?, metadata: LotrModels.WorkingSessionEventMetadata?, date: Swift.String?, shiftTagId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WorkingSessionShiftSummary : Swift.Codable {
+  public let plannedShiftDurationInSeconds: Swift.Int64?
+  public let clockedInDurationInSeconds: Swift.Int64?
+  public let breakDurationInSeconds: Swift.Int64?
+  public let utilizedDurationInSeconds: Swift.Int64?
+  public let utilizedPercentage: Swift.Double?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension LotrModels.AmountRecomputeStatusEnum : Swift.Equatable {}
+extension LotrModels.AmountRecomputeStatusEnum : Swift.Hashable {}
+extension LotrModels.AmountRecomputeStatusEnum : Swift.RawRepresentable {}
+extension LotrModels.AmountTransaction.ExchangeType : Swift.Equatable {}
+extension LotrModels.AmountTransaction.ExchangeType : Swift.Hashable {}
+extension LotrModels.AmountTransaction.ExchangeType : Swift.RawRepresentable {}
+extension LotrModels.AppFieldItem.Format : Swift.Equatable {}
+extension LotrModels.AppFieldItem.Format : Swift.Hashable {}
+extension LotrModels.AppFieldItem.Format : Swift.RawRepresentable {}
+extension LotrModels.BatteryStatus.ChargingStatus : Swift.Equatable {}
+extension LotrModels.BatteryStatus.ChargingStatus : Swift.Hashable {}
+extension LotrModels.BatteryStatus.ChargingStatus : Swift.RawRepresentable {}
+extension LotrModels.BreakType : Swift.Equatable {}
+extension LotrModels.BreakType : Swift.Hashable {}
+extension LotrModels.BreakType : Swift.RawRepresentable {}
+extension LotrModels.BulkUpdateType : Swift.Equatable {}
+extension LotrModels.BulkUpdateType : Swift.Hashable {}
+extension LotrModels.BulkUpdateType : Swift.RawRepresentable {}
+extension LotrModels.CardPlaceholder : Swift.Equatable {}
+extension LotrModels.CardPlaceholder : Swift.Hashable {}
+extension LotrModels.CardPlaceholder : Swift.RawRepresentable {}
+extension LotrModels.ChecklistItem.Format : Swift.Equatable {}
+extension LotrModels.ChecklistItem.Format : Swift.Hashable {}
+extension LotrModels.ChecklistItem.Format : Swift.RawRepresentable {}
+extension LotrModels.ChecklistSetting.ImageQuality : Swift.Equatable {}
+extension LotrModels.ChecklistSetting.ImageQuality : Swift.Hashable {}
+extension LotrModels.ChecklistSetting.ImageQuality : Swift.RawRepresentable {}
+extension LotrModels.ClientAppConfig.UrlHandler : Swift.Equatable {}
+extension LotrModels.ClientAppConfig.UrlHandler : Swift.Hashable {}
+extension LotrModels.ClientAppConfig.UrlHandler : Swift.RawRepresentable {}
+extension LotrModels.ClientAppConfig.PhoneCallMethod : Swift.Equatable {}
+extension LotrModels.ClientAppConfig.PhoneCallMethod : Swift.Hashable {}
+extension LotrModels.ClientAppConfig.PhoneCallMethod : Swift.RawRepresentable {}
+extension LotrModels.ClientProfileItem.Action : Swift.Equatable {}
+extension LotrModels.ClientProfileItem.Action : Swift.Hashable {}
+extension LotrModels.ClientProfileItem.Action : Swift.RawRepresentable {}
+extension LotrModels.ClientStage : Swift.Equatable {}
+extension LotrModels.ClientStage : Swift.Hashable {}
+extension LotrModels.ClientStage : Swift.RawRepresentable {}
+extension LotrModels.ControlEventWrapper.ModelType : Swift.Equatable {}
+extension LotrModels.ControlEventWrapper.ModelType : Swift.Hashable {}
+extension LotrModels.ControlEventWrapper.ModelType : Swift.RawRepresentable {}
+extension LotrModels.DataType : Swift.Equatable {}
+extension LotrModels.DataType : Swift.Hashable {}
+extension LotrModels.DataType : Swift.RawRepresentable {}
+extension LotrModels.DisplayIdentifier : Swift.Equatable {}
+extension LotrModels.DisplayIdentifier : Swift.Hashable {}
+extension LotrModels.DisplayIdentifier : Swift.RawRepresentable {}
+extension LotrModels.EventChecklistsStatus : Swift.Equatable {}
+extension LotrModels.EventChecklistsStatus : Swift.Hashable {}
+extension LotrModels.EventChecklistsStatus : Swift.RawRepresentable {}
+extension LotrModels.ExchangeTypeEnum : Swift.Equatable {}
+extension LotrModels.ExchangeTypeEnum : Swift.Hashable {}
+extension LotrModels.ExchangeTypeEnum : Swift.RawRepresentable {}
+extension LotrModels.FileUploadResponse.Status : Swift.Equatable {}
+extension LotrModels.FileUploadResponse.Status : Swift.Hashable {}
+extension LotrModels.FileUploadResponse.Status : Swift.RawRepresentable {}
+extension LotrModels.FilterOperation : Swift.Equatable {}
+extension LotrModels.FilterOperation : Swift.Hashable {}
+extension LotrModels.FilterOperation : Swift.RawRepresentable {}
+extension LotrModels.GeocodingGoodness : Swift.Equatable {}
+extension LotrModels.GeocodingGoodness : Swift.Hashable {}
+extension LotrModels.GeocodingGoodness : Swift.RawRepresentable {}
+extension LotrModels.HandlingUnitEnum : Swift.Equatable {}
+extension LotrModels.HandlingUnitEnum : Swift.Hashable {}
+extension LotrModels.HandlingUnitEnum : Swift.RawRepresentable {}
+extension LotrModels.ItemVolumeUnit : Swift.Equatable {}
+extension LotrModels.ItemVolumeUnit : Swift.Hashable {}
+extension LotrModels.ItemVolumeUnit : Swift.RawRepresentable {}
+extension LotrModels.LocaleSettings.SystemOfMeasurement : Swift.Equatable {}
+extension LotrModels.LocaleSettings.SystemOfMeasurement : Swift.Hashable {}
+extension LotrModels.LocaleSettings.SystemOfMeasurement : Swift.RawRepresentable {}
+extension LotrModels.Location.ModelType : Swift.Equatable {}
+extension LotrModels.Location.ModelType : Swift.Hashable {}
+extension LotrModels.Location.ModelType : Swift.RawRepresentable {}
+extension LotrModels.LocationProvider : Swift.Equatable {}
+extension LotrModels.LocationProvider : Swift.Hashable {}
+extension LotrModels.LocationProvider : Swift.RawRepresentable {}
+extension LotrModels.LogicalOperation : Swift.Equatable {}
+extension LotrModels.LogicalOperation : Swift.Hashable {}
+extension LotrModels.LogicalOperation : Swift.RawRepresentable {}
+extension LotrModels.LoginFlowType : Swift.Equatable {}
+extension LotrModels.LoginFlowType : Swift.Hashable {}
+extension LotrModels.LoginFlowType : Swift.RawRepresentable {}
+extension LotrModels.LoginOtpResponseStatus : Swift.Equatable {}
+extension LotrModels.LoginOtpResponseStatus : Swift.Hashable {}
+extension LotrModels.LoginOtpResponseStatus : Swift.RawRepresentable {}
+extension LotrModels.NavigationRestriction : Swift.Equatable {}
+extension LotrModels.NavigationRestriction : Swift.Hashable {}
+extension LotrModels.NavigationRestriction : Swift.RawRepresentable {}
+extension LotrModels.NotificationChannel.ModelType : Swift.Equatable {}
+extension LotrModels.NotificationChannel.ModelType : Swift.Hashable {}
+extension LotrModels.NotificationChannel.ModelType : Swift.RawRepresentable {}
+extension LotrModels.PaymentInstrumentType : Swift.Equatable {}
+extension LotrModels.PaymentInstrumentType : Swift.Hashable {}
+extension LotrModels.PaymentInstrumentType : Swift.RawRepresentable {}
+extension LotrModels.PaymentStatus : Swift.Equatable {}
+extension LotrModels.PaymentStatus : Swift.Hashable {}
+extension LotrModels.PaymentStatus : Swift.RawRepresentable {}
+extension LotrModels.Resource.Unit : Swift.Equatable {}
+extension LotrModels.Resource.Unit : Swift.Hashable {}
+extension LotrModels.Resource.Unit : Swift.RawRepresentable {}
+extension LotrModels.ResourceDefinition.Unit : Swift.Equatable {}
+extension LotrModels.ResourceDefinition.Unit : Swift.Hashable {}
+extension LotrModels.ResourceDefinition.Unit : Swift.RawRepresentable {}
+extension LotrModels.ResourceExchangeType : Swift.Equatable {}
+extension LotrModels.ResourceExchangeType : Swift.Hashable {}
+extension LotrModels.ResourceExchangeType : Swift.RawRepresentable {}
+extension LotrModels.PayoutUploadPeriodEnum : Swift.Equatable {}
+extension LotrModels.PayoutUploadPeriodEnum : Swift.Hashable {}
+extension LotrModels.PayoutUploadPeriodEnum : Swift.RawRepresentable {}
+extension LotrModels.RuleTypeEnum : Swift.Equatable {}
+extension LotrModels.RuleTypeEnum : Swift.Hashable {}
+extension LotrModels.RuleTypeEnum : Swift.RawRepresentable {}
+extension LotrModels.SortingInfo.Order : Swift.Equatable {}
+extension LotrModels.SortingInfo.Order : Swift.Hashable {}
+extension LotrModels.SortingInfo.Order : Swift.RawRepresentable {}
+extension LotrModels.SortingInfo.OrderSequence : Swift.Equatable {}
+extension LotrModels.SortingInfo.OrderSequence : Swift.Hashable {}
+extension LotrModels.SortingInfo.OrderSequence : Swift.RawRepresentable {}
+extension LotrModels.SubStatus.SubStatus : Swift.Equatable {}
+extension LotrModels.SubStatus.SubStatus : Swift.Hashable {}
+extension LotrModels.SubStatus.SubStatus : Swift.RawRepresentable {}
+extension LotrModels.FieldEnum : Swift.Equatable {}
+extension LotrModels.FieldEnum : Swift.Hashable {}
+extension LotrModels.FieldEnum : Swift.RawRepresentable {}
+extension LotrModels.TaskStatus.Status : Swift.Equatable {}
+extension LotrModels.TaskStatus.Status : Swift.Hashable {}
+extension LotrModels.TaskStatus.Status : Swift.RawRepresentable {}
+extension LotrModels.TaskStatusRequest.Status : Swift.Equatable {}
+extension LotrModels.TaskStatusRequest.Status : Swift.Hashable {}
+extension LotrModels.TaskStatusRequest.Status : Swift.RawRepresentable {}
+extension LotrModels.TaskType : Swift.Equatable {}
+extension LotrModels.TaskType : Swift.Hashable {}
+extension LotrModels.TaskType : Swift.RawRepresentable {}
+extension LotrModels.TimeWindow.Strictness : Swift.Equatable {}
+extension LotrModels.TimeWindow.Strictness : Swift.Hashable {}
+extension LotrModels.TimeWindow.Strictness : Swift.RawRepresentable {}
+extension LotrModels.TourCardSectionOneProperty : Swift.Equatable {}
+extension LotrModels.TourCardSectionOneProperty : Swift.Hashable {}
+extension LotrModels.TourCardSectionOneProperty : Swift.RawRepresentable {}
+extension LotrModels.TourCardSectionTwoProperty : Swift.Equatable {}
+extension LotrModels.TourCardSectionTwoProperty : Swift.Hashable {}
+extension LotrModels.TourCardSectionTwoProperty : Swift.RawRepresentable {}
+extension LotrModels.TourDetailsProperty : Swift.Equatable {}
+extension LotrModels.TourDetailsProperty : Swift.Hashable {}
+extension LotrModels.TourDetailsProperty : Swift.RawRepresentable {}
+extension LotrModels.TourDetailsSection : Swift.Equatable {}
+extension LotrModels.TourDetailsSection : Swift.Hashable {}
+extension LotrModels.TourDetailsSection : Swift.RawRepresentable {}
+extension LotrModels.TourStatus : Swift.Equatable {}
+extension LotrModels.TourStatus : Swift.Hashable {}
+extension LotrModels.TourStatus : Swift.RawRepresentable {}
+extension LotrModels.TourVisit.VisitSource : Swift.Equatable {}
+extension LotrModels.TourVisit.VisitSource : Swift.Hashable {}
+extension LotrModels.TourVisit.VisitSource : Swift.RawRepresentable {}
+extension LotrModels.TourVisitSource : Swift.Equatable {}
+extension LotrModels.TourVisitSource : Swift.Hashable {}
+extension LotrModels.TourVisitSource : Swift.RawRepresentable {}
+extension LotrModels.TriggerTypeEnum : Swift.Equatable {}
+extension LotrModels.TriggerTypeEnum : Swift.Hashable {}
+extension LotrModels.TriggerTypeEnum : Swift.RawRepresentable {}
+extension LotrModels.UseCaseType : Swift.Equatable {}
+extension LotrModels.UseCaseType : Swift.Hashable {}
+extension LotrModels.UseCaseType : Swift.RawRepresentable {}
+extension LotrModels.UserStatus.Status : Swift.Equatable {}
+extension LotrModels.UserStatus.Status : Swift.Hashable {}
+extension LotrModels.UserStatus.Status : Swift.RawRepresentable {}
+extension LotrModels.UserVisitType : Swift.Equatable {}
+extension LotrModels.UserVisitType : Swift.Hashable {}
+extension LotrModels.UserVisitType : Swift.RawRepresentable {}
+extension LotrModels.VisitExchangeType : Swift.Equatable {}
+extension LotrModels.VisitExchangeType : Swift.Hashable {}
+extension LotrModels.VisitExchangeType : Swift.RawRepresentable {}
+extension LotrModels.VisitMetadata.ModelType : Swift.Equatable {}
+extension LotrModels.VisitMetadata.ModelType : Swift.Hashable {}
+extension LotrModels.VisitMetadata.ModelType : Swift.RawRepresentable {}
+extension LotrModels.VisitMetadataType : Swift.Equatable {}
+extension LotrModels.VisitMetadataType : Swift.Hashable {}
+extension LotrModels.VisitMetadataType : Swift.RawRepresentable {}
+extension LotrModels.VisitStatus.Status : Swift.Equatable {}
+extension LotrModels.VisitStatus.Status : Swift.Hashable {}
+extension LotrModels.VisitStatus.Status : Swift.RawRepresentable {}
+extension LotrModels.VisitStatusRequest.Status : Swift.Equatable {}
+extension LotrModels.VisitStatusRequest.Status : Swift.Hashable {}
+extension LotrModels.VisitStatusRequest.Status : Swift.RawRepresentable {}
+extension LotrModels.Volume.Unit : Swift.Equatable {}
+extension LotrModels.Volume.Unit : Swift.Hashable {}
+extension LotrModels.Volume.Unit : Swift.RawRepresentable {}
+extension LotrModels.VolumeDefinition.Unit : Swift.Equatable {}
+extension LotrModels.VolumeDefinition.Unit : Swift.Hashable {}
+extension LotrModels.VolumeDefinition.Unit : Swift.RawRepresentable {}
+extension LotrModels.VolumeUnit : Swift.Equatable {}
+extension LotrModels.VolumeUnit : Swift.Hashable {}
+extension LotrModels.VolumeUnit : Swift.RawRepresentable {}
+extension LotrModels.WeightUnit : Swift.Equatable {}
+extension LotrModels.WeightUnit : Swift.Hashable {}
+extension LotrModels.WeightUnit : Swift.RawRepresentable {}
+extension LotrModels.WorkflowType : Swift.Equatable {}
+extension LotrModels.WorkflowType : Swift.Hashable {}
+extension LotrModels.WorkflowType : Swift.RawRepresentable {}

@@ -1,0 +1,316 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name LotrSdk
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import AdSupport
+import Alamofire
+import CoreLocation
+import Foundation
+@_exported import LotrModels
+import Moya
+import Realm
+import RealmSwift
+import RxCoreLocation
+import RxRealm
+import RxSwift
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension Foundation.Bundle {
+  public static func getFrameworkBundle() -> Foundation.Bundle
+}
+@_hasMissingDesignatedInitializers public class AudioPlayerService {
+  public static let sharedInstance: LotrSdk.AudioPlayerService
+  public func playSound(name: Swift.String, ext: Swift.String = "mp3")
+  @objc deinit
+}
+public struct AuthParams : Swift.Codable {
+  public static func forClient(clientId: Swift.String, password: Swift.String) -> LotrSdk.AuthParams
+  public static func forUser(clientId: Swift.String, userId: Swift.String, password: Swift.String) -> LotrSdk.AuthParams
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public typealias EncodeResult = (data: Foundation.Data?, error: (any Swift.Error)?)
+@_hasMissingDesignatedInitializers open class CodableHelper {
+  public static var dateformatter: Foundation.DateFormatter?
+  open class func decode<T>(_ type: T.Type, from data: Foundation.Data) -> (decodableObj: T?, error: (any Swift.Error)?) where T : Swift.Decodable
+  open class func encode<T>(_ value: T, prettyPrint: Swift.Bool = false) -> LotrSdk.EncodeResult where T : Swift.Encodable
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Configuration {
+  public static var dateFormat: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DataManager {
+  public var clientAppConfig: LotrModels.ClientAppConfig? {
+    get
+    set
+  }
+  @objc deinit
+}
+extension LotrModels.DeviceInfo : Swift.Equatable {
+  public static func == (lhs: LotrModels.DeviceInfo, rhs: LotrModels.DeviceInfo) -> Swift.Bool
+}
+extension Swift.KeyedEncodingContainerProtocol {
+  public mutating func encodeArray<T>(_ values: [T], forKey key: Self.Key) throws where T : Swift.Encodable
+  public mutating func encodeArrayIfPresent<T>(_ values: [T]?, forKey key: Self.Key) throws where T : Swift.Encodable
+  public mutating func encodeMap<T>(_ pairs: [Self.Key : T]) throws where T : Swift.Encodable, Self.Key : Swift.Hashable
+  public mutating func encodeMapIfPresent<T>(_ pairs: [Self.Key : T]?) throws where T : Swift.Encodable, Self.Key : Swift.Hashable
+}
+extension Swift.KeyedDecodingContainerProtocol {
+  public func decodeArray<T>(_: T.Type, forKey key: Self.Key) throws -> [T] where T : Swift.Decodable
+  public func decodeArrayIfPresent<T>(_: T.Type, forKey key: Self.Key) throws -> [T]? where T : Swift.Decodable
+  public func decodeMap<T>(_: T.Type, excludedKeys: Swift.Set<Self.Key>) throws -> [Self.Key : T] where T : Swift.Decodable, Self.Key : Swift.Hashable
+}
+@_hasMissingDesignatedInitializers public class FileUtil {
+  public static func saveData(data: Foundation.Data, to filename: Swift.String) -> Swift.Bool
+  public static func getData(from filename: Swift.String) -> Foundation.Data?
+  public static func deleteFile(named filename: Swift.String)
+  @objc deinit
+}
+public struct JSONDataEncoding : Alamofire.ParameterEncoding {
+  public func encode(_ urlRequest: any Alamofire.URLRequestConvertible, with parameters: Alamofire.Parameters?) throws -> Foundation.URLRequest
+  public static func encodingParameters(jsonData: Foundation.Data?) -> Alamofire.Parameters?
+}
+@_hasMissingDesignatedInitializers open class JSONEncodingHelper {
+  open class func encodingParameters<T>(forEncodableObject encodableObj: T?) -> Alamofire.Parameters? where T : Swift.Encodable
+  open class func encodingParameters(forEncodableObject encodableObj: Any?) -> Alamofire.Parameters?
+  @objc deinit
+}
+public class LineItemTransactionUpdateParams {
+  public init(taskId: Swift.String, visitId: Swift.String, lineItems: [LotrModels.LineItemTransactionStatus]? = nil)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class LocationManager {
+  @objc deinit
+}
+public enum LocusSDK {
+  public static func initialize(credentialProvider: any LotrSdk.LotrSdkCredentialProviderProtocol, region: LotrSdk.SupportedRegions = .restOfWorld, delegate: any LotrSdk.LocusSDKDelegate, successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (_ error: LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func reinitialize(credentialProvider: any LotrSdk.LotrSdkCredentialProviderProtocol, delegate: any LotrSdk.LocusSDKDelegate, region: LotrSdk.SupportedRegions = .restOfWorld, successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (_ error: LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func updateAuthParam(param: LotrSdk.AuthParams, successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (_ error: LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func updateAppConfig(successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (_ error: LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func requestAuthorization()
+  public static func logout(forceLogout: Swift.Bool, successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (_ error: LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func isTracking() -> Swift.Bool
+  public static func startTracking(successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (_ error: LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func stopTracking(successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (_ error: LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func getAuthorizationStatus() -> CoreLocation.CLAuthorizationStatus
+  public static func getAccuracyAuthorization() -> CoreLocation.CLAccuracyAuthorization?
+  public static func getLocationManagerInstance() -> LotrSdk.LocationManager
+  public static func getCLLocationManagerInstance() -> CoreLocation.CLLocationManager
+  public static func getLocusSDKStatus() -> LotrSdk.LocusSDKStatus
+  public static func getLastKnownLocation() -> LotrModels.Location?
+  public static func getLastSyncedLocation() -> LotrModels.Location?
+  public static func sync(forceTransmit: Swift.Bool, successBlock: @escaping () -> Swift.Void, failureBlock: @escaping (LotrSdk.LocusSDKError) -> Swift.Void)
+  public static func updateTaskStatus(taskStatusUpdateParams: LotrSdk.TaskStatusUpdateParams) throws
+  public static func updateVisitStatus(visitStatusUpdateParams: LotrSdk.VisitStatusUpdateParams) throws
+  public static func addVisitTransactionEndUpdate(taskId: Swift.String, visitId: Swift.String) throws
+  public static func updateTourStatus(tourStatusUpdateParams: LotrSdk.TourStatusUpdateParams) throws
+  public static func updateDelayReasonChecklist(delayReasonChecklist: LotrModels.UpdateDelayReasonChecklistRequest, visitId: Swift.String, taskId: Swift.String) throws
+  public static func updatePaymentChecklist(checklist: LotrModels.UpdateDelayReasonChecklistRequest, visitId: Swift.String, taskId: Swift.String) throws
+  public static func updateLineItemTransaction(lineItemTransactionUpdateParams: LotrSdk.LineItemTransactionUpdateParams) throws
+  public static func uploadFile(tourId: Swift.String, fileName: Swift.String) throws
+  public static func uploadFile(taskId: Swift.String, fileName: Swift.String) throws
+  public static func getAllDaoCount() -> Swift.Int
+  public static func getAllDaoCountWith(clientId: Swift.String, taskId: Swift.String) -> Swift.Int
+  public static func clear()
+}
+public protocol LocusSDKDelegate : AnyObject {
+  func locusSDKStatusChanged(status: LotrSdk.LocusSDKStatus)
+  func onLocationUpdated(location: LotrModels.Location)
+  func onLocationError(error: LotrSdk.LocusSDKError)
+  func onLocationUploaded(location: LotrModels.Location)
+  func isOfflineStatusChanged(isOffline: Swift.Bool)
+  func logEvent(tag: Swift.String, message: Swift.String, logLevel: LotrSdk.LocusSDKLogLevel)
+  func launchScannerForTextInput(delegate: any LotrSdk.ScanResultReceiver)
+}
+public enum LocusSDKError : Swift.Error {
+  case _default(error: any Swift.Error)
+  case general(message: Swift.String)
+  case networkFailure
+  case authError(message: Swift.String)
+  case illegalState(message: Swift.String)
+  case reInitializeError
+  case invalidLocationPermission
+  case preciseLocationFeatureDisabled
+  case locationPlistInfoMissing
+  case inputMissing(message: Swift.String)
+  case inputInvalid(message: Swift.String)
+}
+extension LotrSdk.LocusSDKError : Swift.Equatable {
+  public static func error(_ error: any Swift.Error) -> LotrSdk.LocusSDKError
+  public var message: Swift.String {
+    get
+  }
+  public static func == (lhs: LotrSdk.LocusSDKError, rhs: LotrSdk.LocusSDKError) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers public class LocusSDKImplementation {
+  public static let shared: LotrSdk.LocusSDKImplementation
+  public func launchScannerForTextInput(delegate: any LotrSdk.ScanResultReceiver)
+  public func logEvent(tag: Swift.String, message: Swift.String, logLevel: LotrSdk.LocusSDKLogLevel)
+  @objc deinit
+}
+public enum LocusSDKLogLevel : Swift.String {
+  case verbose
+  case error
+  case info
+  case warning
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class LocusSDKOutStoreDao : RealmSwift.Object {
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum LocusSDKStatus : Swift.String {
+  case notInitialized
+  case authenticated
+  case tracking
+  case trackingWithoutPermission
+  case trackingWithReducedAccuracy
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class LocusSdkCredentials {
+  open var clientId: Swift.String
+  open var userId: Swift.String
+  open var authHeaderToken: [Swift.String : Swift.String]
+  open var userAgent: [Swift.String : Swift.String]
+  public init(clientId: Swift.String, userId: Swift.String, authHeaderToken: [Swift.String : Swift.String], userAgent: [Swift.String : Swift.String])
+  @objc deinit
+}
+public enum LocusSDKLoggingTags {
+  public static let outService: Swift.String
+  public static let sdkCamera: Swift.String
+  public static let imageUtil: Swift.String
+  public static let apiError: Swift.String
+}
+public protocol LotrSdkCredentialProviderProtocol {
+  func getCredentials(completion: @escaping (LotrSdk.LocusSdkCredentials) -> Swift.Void, error: @escaping (LotrSdk.SDKError) -> Swift.Void)
+  func getUserId() -> Swift.String
+  func getClientId() -> Swift.String
+}
+public enum ErrorResponse : Swift.Error {
+  case error(Swift.Int, Foundation.Data?, any Swift.Error)
+}
+open class Response<T> {
+  final public let statusCode: Swift.Int
+  final public let header: [Swift.String : Swift.String]
+  final public let body: T?
+  public init(statusCode: Swift.Int, header: [Swift.String : Swift.String], body: T?)
+  convenience public init(response: Foundation.HTTPURLResponse, body: T?)
+  @objc deinit
+}
+public struct NetworkState : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class Provider {
+  public class func getDataManager() -> LotrSdk.DataManager
+  @objc deinit
+}
+public class RealmHelper {
+  public init()
+  public func setup()
+  public func add(_ object: RealmSwift.Object)
+  public func addAll(_ objects: [RealmSwift.Object])
+  public func getElement<Element>(for model: Element.Type, with id: Swift.String) -> Element? where Element : Realm.RealmSwiftObject
+  public func getAll<Element>(for model: Element.Type) -> RealmSwift.Results<Element> where Element : Realm.RealmSwiftObject
+  public func getAll<Element>(for model: Element.Type, with predicate: Foundation.NSPredicate, sortBy: [RealmSwift.SortDescriptor] = []) -> RealmSwift.Results<Element> where Element : Realm.RealmSwiftObject
+  public func delete<Element>(for model: Element.Type) where Element : Realm.RealmSwiftObject
+  public func delete<Element>(for model: Element.Type, with id: Swift.String) where Element : Realm.RealmSwiftObject
+  public func delete<Element>(for model: Element.Type, with predicate: Foundation.NSPredicate) where Element : Realm.RealmSwiftObject
+  public func delete<Element>(dao: Element) where Element : Realm.RealmSwiftObject
+  public func deleteAll()
+  public func inTransaction(_ block: () throws -> Swift.Void)
+  public func safeWrite(_ block: () throws -> Swift.Void) throws
+  public func handleMigrations(migration: RealmSwift.Migration, oldVersion: Swift.UInt64)
+  @objc deinit
+}
+public protocol ScanResultReceiver {
+  func onScanResult(result scannedText: Swift.String)
+  func onCancelWithoutResult()
+}
+public struct SDKError : Swift.Codable {
+  public var errorCode: Swift.Int?
+  public var message: Swift.String?
+  public init(errorCode: Swift.Int?, message: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension Swift.String {
+  public func matches(regex pattern: Swift.String) -> Swift.Bool
+}
+public enum SupportedRegions : Swift.String {
+  case osaka
+  case makro
+  case restOfWorld
+  case devo
+  case devo2
+  case devo18
+  case preProd
+  case india
+  public var title: Swift.String {
+    get
+  }
+  public var shortTitle: Swift.String {
+    get
+  }
+  public var lotrUrl: Swift.String {
+    get
+  }
+  public var taxyUrl: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension LotrSdk.SupportedRegions {
+  public static func getServerTrustManager(keys: [Security.SecKey] = Bundle.main.af.publicKeys) -> Alamofire.ServerTrustManager
+}
+public class TaskStatusUpdateParams {
+  public init(taskId: Swift.String, taskStatus: LotrModels.TaskStatus.Status, checklist: [Swift.String : Swift.String]? = nil)
+  @objc deinit
+}
+public class TourStatusUpdateParams {
+  public init(tourId: Swift.String, visitId: Swift.String, status: LotrModels.VisitStatusRequest.Status, checklist: [Swift.String : Swift.String]? = nil)
+  @objc deinit
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public func addBorder(width: CoreFoundation.CGFloat, color: UIKit.UIColor)
+  @_Concurrency.MainActor @preconcurrency public func addBorderTop(size: CoreFoundation.CGFloat, color: UIKit.UIColor)
+  @_Concurrency.MainActor @preconcurrency public func addBorderTopWithPadding(size: CoreFoundation.CGFloat, color: UIKit.UIColor, padding: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor @preconcurrency public func addBorderBottom(size: CoreFoundation.CGFloat, color: UIKit.UIColor)
+  @_Concurrency.MainActor @preconcurrency public func addBorderLeft(size: CoreFoundation.CGFloat, color: UIKit.UIColor)
+  @_Concurrency.MainActor @preconcurrency public func addBorderRight(size: CoreFoundation.CGFloat, color: UIKit.UIColor)
+  @_Concurrency.MainActor @preconcurrency public func fillSuperview()
+  @_Concurrency.MainActor @preconcurrency public func removeSubviews()
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor @preconcurrency public func load(url: Foundation.URL)
+}
+public class VisitStatusUpdateParams {
+  public init(taskId: Swift.String, visitId: Swift.String, visitStatus: LotrModels.VisitStatus.Status, checklist: [Swift.String : Swift.String]? = nil)
+  @objc deinit
+}
+extension LotrSdk.LocusSDKLogLevel : Swift.Equatable {}
+extension LotrSdk.LocusSDKLogLevel : Swift.Hashable {}
+extension LotrSdk.LocusSDKLogLevel : Swift.RawRepresentable {}
+extension LotrSdk.LocusSDKStatus : Swift.Equatable {}
+extension LotrSdk.LocusSDKStatus : Swift.Hashable {}
+extension LotrSdk.LocusSDKStatus : Swift.RawRepresentable {}
+extension LotrSdk.SupportedRegions : Swift.Equatable {}
+extension LotrSdk.SupportedRegions : Swift.Hashable {}
+extension LotrSdk.SupportedRegions : Swift.RawRepresentable {}

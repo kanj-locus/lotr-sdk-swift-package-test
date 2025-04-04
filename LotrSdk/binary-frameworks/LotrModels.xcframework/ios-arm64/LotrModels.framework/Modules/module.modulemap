@@ -1,0 +1,4 @@
+framework module LotrModels {
+  header "LotrModels-Swift.h"
+  requires objc
+}
